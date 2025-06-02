@@ -6,17 +6,7 @@ import * as React from "react"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
-import { NavigationMenuDemo } from "@/components/navigation-menu"
+import { SiteHeader } from "@/components/header"
 
 
 
@@ -38,7 +28,7 @@ export default function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             <main>
-              <NavigationMenuDemo />
+              <SiteHeader />
               {children}
             </main>
           </SidebarProvider>
