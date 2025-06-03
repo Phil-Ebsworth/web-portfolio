@@ -20,7 +20,7 @@ export function NavigationMenuDemo() {
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                            <Link href="">Profile</Link>
+                            <Link href="/">Profile</Link>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
