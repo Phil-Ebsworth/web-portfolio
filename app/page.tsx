@@ -1,20 +1,45 @@
+import { ThemeProvider } from "@/components/theme-provider";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Separator } from "@radix-ui/react-separator";
+import { Columns } from "lucide-react";
 
 
 export default function Page() {
   return (
-    
-    <main className="flex min-h-screen flex-col p-6">
-      
-    </main>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <main className="flex flex-col items-center justify-center min-h-screen min-w-screen p-8 ">
+              <Card className="border-none shadow-md bg-white/5 max-w-3xl mx-auto mt-12">
+        <CardHeader>
+          <CardTitle>Philip-Daniel Ebsworth</CardTitle>
+          <CardDescription></CardDescription>
+        </CardHeader>
+        <CardContent className="flex items-center justify-between">
+          <p className="flex-1 text-center">
+            Kreativer Full Stack Entwickler mit Fokus auf moderne Webtechnologien, Performance und Design. 
+            Begeistert von TypeScript, React und Next.js, bringe ich innovative Ideen von der Konzeption bis zum Deployment. 
+            Mit einem Auge fürs Detail und einer Leidenschaft für sauberen Code entwickle ich skalierbare, benutzerfreundliche Lösungen.
+          </p>
+          <div className="flex items-center space-x-4 w-1/5" />
+          <img
+            src="/profile.png"
+            alt="Profile"
+            className="w-1/3 rounded-full object-cover"
+          />
+        </CardContent>
+      </Card>
+      </main>
+    </ThemeProvider>
   );
 }
