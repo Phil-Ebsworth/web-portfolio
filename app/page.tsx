@@ -7,8 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Separator } from "@radix-ui/react-separator";
-import { Columns } from "lucide-react";
 
 
 export default function Page() {
@@ -19,8 +17,7 @@ export default function Page() {
       enableSystem
       disableTransitionOnChange
     >
-      <main className="flex flex-col items-center justify-center min-h-screen min-w-screen p-8 ">
-              <Card className="border-none shadow-md bg-white/5 max-w-3xl mx-auto mt-12">
+        <Card className="border-none shadow-md bg-white/5 max-w-3xl mx-auto mt-12">
         <CardHeader>
           <CardTitle>Philip-Daniel Ebsworth</CardTitle>
           <CardDescription></CardDescription>
@@ -39,7 +36,6 @@ export default function Page() {
           />
         </CardContent>
       </Card>
-      </main>
     </ThemeProvider>
   );
 }

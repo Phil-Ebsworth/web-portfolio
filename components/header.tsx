@@ -6,10 +6,8 @@ import { NavigationMenuDemo } from "@/components/navigation-menu"
 
 export function SiteHeader() {
     return (
-        <header className="flex md:w-full h-(--header-height) shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)">
-            <div className="flex w-full items-center gap-4 px-8 lg:gap-6 lg:px-12 text-lg">
-                <SidebarTrigger className="-ml-5 scale-125" />
-                <NavigationMenuDemo />
+        <header className="">
+            <div className="">
                 <div>
                     <Button variant="ghost" asChild size="icon" className="hidden sm:flex p-0 scale-125">
                         <a

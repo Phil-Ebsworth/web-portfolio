@@ -4,9 +4,9 @@ import '@/app/global.css';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import * as React from "react"
 import { ThemeProvider } from "@/components/theme-provider"
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
-import { SiteHeader } from "@/components/header"
+import { Separator } from "@/components/ui/separator"
 
 
 
@@ -31,12 +31,22 @@ export default function RootLayout({
         enableSystem
         disableTransitionOnChange
       >
-        <SidebarProvider defaultOpen={false}>
+        <SidebarProvider>
         <AppSidebar />
-        <main className="flex w-full flex-col items-center justify-center min-h-screen min-w-screen ">
-          <SiteHeader />
-          {children}
-        </main>
+        <SidebarInset>
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+          <div className="flex items-center gap-2 px-4">
+            <SidebarTrigger className="-ml-1" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-[orientation=vertical]:h-4"
+            />
+            <h1 className="text-lg font-semibold">Projects</h1>
+            <h1 className="text-lg font-semibold">Projects</h1>
+          </div>
+        </header>
+        <main>{children}</main>
+      </SidebarInset>
         </SidebarProvider>
       </ThemeProvider>
       <SpeedInsights />
