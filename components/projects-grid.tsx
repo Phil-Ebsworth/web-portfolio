@@ -13,7 +13,7 @@ export function ProjectsGrid() {
             <Card className="w-full @container/card">
                 <div className="overflow-hidden">
                     <img
-                        src="/documentation.png"
+                        src="/documentation.PNG"
                         alt="Project preview"
                         className="w-full h-40 rounded-t-xl"
                         style={{ objectFit: "cover" }}
@@ -46,7 +46,7 @@ export function ProjectsGrid() {
             <Card className="w-full @container/card">
                 <div className="overflow-hidden">
                     <img
-                        src="/roboarena.png"
+                        src="/roboarena.PNG"
                         alt="Project preview"
                         className="w-full h-40 rounded-t-xl"
                         style={{ objectFit: "cover" }}
