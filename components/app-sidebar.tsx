@@ -20,12 +20,12 @@ import clsx from 'clsx';
 const items = [
   {
     title: "Home",
-    url: "/Home",
+    url: "/home",
     icon: Home,
   },
   {
     title: "Projects",
-    url: "/Projects",
+    url: "/projects",
     icon: Files,
   },
   {
