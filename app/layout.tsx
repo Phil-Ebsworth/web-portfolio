@@ -44,7 +44,7 @@ export default function RootLayout({
                   orientation="vertical"
                   className="mr-2 data-[orientation=vertical]:h-4 bg-gray-400"
                 />
-                <h1 className="text-lg font-semibold">{pathname.slice(1)}</h1>
+                <h1 className="text-lg font-semibold">{pathname.slice(1).charAt(0).toUpperCase() + pathname.slice(2)}</h1>
               </div>
               <Button variant="ghost" asChild size="icon" className="hidden sm:flex p-0 scale-125">
                 <a
