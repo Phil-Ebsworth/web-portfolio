@@ -15,6 +15,7 @@ import { use } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import clsx from 'clsx';
+import { ModeToggle } from "@/app/ui/mode-toggle"
 
 // Menu items.
 const items = [
@@ -73,18 +74,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <a href="/settings">
+                  <Link href="/settings">
                     <Settings />
                     <span>Settings</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <a href="/help">
-                    <Search />
-                    <span>Help</span>
-                  </a>
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>

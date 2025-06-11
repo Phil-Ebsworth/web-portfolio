@@ -9,6 +9,7 @@ import { AppSidebar } from "@/app/ui/app-sidebar"
 import { Separator } from "@/components/ui/separator"
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { ModeToggle } from './ui/mode-toggle';
 
 
 
@@ -62,6 +63,7 @@ export default function RootLayout({
                   />
                 </a>
               </Button>
+              <ModeToggle />
             </header>
             <main>{children}</main>
           </SidebarInset>
