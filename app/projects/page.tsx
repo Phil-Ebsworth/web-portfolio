@@ -1,5 +1,5 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { ProjectsGrid } from "@/components/projects-grid";
+import { ThemeProvider } from "@/app/ui/theme-provider";
+import { ProjectsGrid } from "@/app/ui/projects-grid";
 
 export default function Page() {
     return (

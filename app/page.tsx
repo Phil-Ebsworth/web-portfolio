@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/app/ui/theme-provider";
 import {
   Card,
   CardContent,

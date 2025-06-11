@@ -1,11 +1,11 @@
 "use client"
 
-import '@/app/global.css';
+import '@/app/ui/global.css';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import * as React from "react"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/app/ui/theme-provider"
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/app/ui/app-sidebar"
 import { Separator } from "@/components/ui/separator"
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
