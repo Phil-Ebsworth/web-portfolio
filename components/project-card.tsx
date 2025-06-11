@@ -6,8 +6,8 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { Url } from "next/dist/shared/lib/router/router";
 import Link from "next/link";
+import { fetchProjects } from "@/app/lib/data";
 
 interface ProjectCardProps {
     img: string;
