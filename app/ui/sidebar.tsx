@@ -1,23 +1,25 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import { Home, Search, Settings, Files, User } from "lucide-react"
 
+import clsx from 'clsx';
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  useSidebar,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
-  SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarFooter,
-} from "@/components/ui/sidebar"
-import { use } from "react"
+} from '@/components/ui/sidebar';
 import { usePathname } from "next/navigation"
-import Link from "next/link"
-import clsx from 'clsx';
-import { ModeToggle } from "@/app/ui/mode-toggle"
+import Link from 'next/link';
 
-// Menu items.
 const items = [
   {
     title: "Home",
@@ -36,13 +38,13 @@ const items = [
   },
 ]
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const pathname = usePathname()
+export function AppSidebar() {
+  const router = useRouter();
+const pathname = usePathname()
   return (
-    <Sidebar {...props}>
+    <Sidebar collapsible="icon" className="group-data-[side=left]:border-r-0">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Philip-Daniel Ebsworth</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -85,5 +87,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

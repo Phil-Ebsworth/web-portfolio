@@ -5,12 +5,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import * as React from "react"
 import { ThemeProvider } from "@/app/ui/theme-provider"
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/app/ui/app-sidebar"
-import { Separator } from "@/components/ui/separator"
+import { AppSidebar } from "@/app/ui/sidebar"
 import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { ModeToggle } from './ui/mode-toggle';
 import { useTheme } from "next-themes"
+import { Header } from './ui/header';
 
 
 
@@ -19,8 +17,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const pathname = usePathname();
-  const { theme } = useTheme();
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -38,35 +34,9 @@ export default function RootLayout({
         disableTransitionOnChange
       >
         <SidebarProvider >
-          <AppSidebar collapsible='icon' className="border border-none rounded-r-xl shadow-md bg-white/5 h-screen w-52" />
+          <AppSidebar/>
           <SidebarInset>
-            <header className="flex h-14 shrink-0 items-center transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-              <div className="flex gap-4 items-center flex-1">
-                <SidebarTrigger className="scale-150" />
-                <Separator
-                  orientation="vertical"
-                  className="mr-2 data-[orientation=vertical]:h-4 bg-gray-400"
-                />
-                <h1 className="text-lg font-semibold">{pathname.slice(1).charAt(0).toUpperCase() + pathname.slice(2)}</h1>
-              </div>
-              <Button variant="ghost" asChild size="icon" className="hidden sm:flex p-0 scale-125">
-                <a
-                  href="https://github.com/Phil-Ebsworth"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label="GitHub"
-                  className="dark:text-foreground flex items-center justify-center w-12 h-12"
-                >
-                  <img
-                    src= {theme === "light" ? "/github-mark-white.svg" : "/github-mark.svg"}
-                    alt="GitHub"
-                    className="w-5 h-5"
-                    style={{ display: "block" }}
-                  />
-                </a>
-              </Button>
-              <ModeToggle />
-            </header>
+            <Header />
             <main>{children}</main>
           </SidebarInset>
         </SidebarProvider>
@@ -76,3 +46,4 @@ export default function RootLayout({
     </html>
   );
 }
+
