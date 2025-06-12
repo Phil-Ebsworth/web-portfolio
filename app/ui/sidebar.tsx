@@ -44,47 +44,47 @@ const pathname = usePathname()
   return (
     <Sidebar collapsible="icon" className="group-data-[side=left]:border-r-0">
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link
-                      key={item.title}
-                      href={item.url}
-                      className={clsx("text-gray-400",
-                        {
-                          'text-gray-200': pathname === item.url,
-                        },
-                      )}
-                    >
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+      <SidebarGroup>
+      <SidebarGroupContent>
+      <SidebarMenu>
+        {items.map((item) => (
+        <SidebarMenuItem key={item.title}>
+        <SidebarMenuButton asChild>
+        <Link
+          key={item.title}
+          href={item.url}
+          className={clsx("text-gray-400",
+          {
+          'text-gray-200': pathname === item.url,
+          },
+          )}
+        >
+          <item.icon />
+          <span>{item.title}</span>
+        </Link>
+        </SidebarMenuButton>
+        </SidebarMenuItem>
+        ))}
+      </SidebarMenu>
+      </SidebarGroupContent>
+      </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarGroup>
-          <SidebarGroupLabel>Settings</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/settings">
-                    <Settings />
-                    <span>Settings</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+      <SidebarGroup>
+      <SidebarGroupLabel>Settings</SidebarGroupLabel>
+      <SidebarGroupContent>
+      <SidebarMenu>
+        <SidebarMenuItem>
+        <SidebarMenuButton asChild>
+        <Link href="/settings">
+        <Settings />
+        <span>Settings</span>
+        </Link>
+        </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+      </SidebarGroupContent>
+      </SidebarGroup>
       </SidebarFooter>
     </Sidebar>
   );
