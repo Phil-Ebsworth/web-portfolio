@@ -11,13 +11,7 @@ import {
 
 export default function Page() {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-        <Card className="border-none shadow-md bg-white/5 max-w-3xl mx-auto mt-12">
+        <Card className="border-none">
         <CardHeader>
           <CardTitle>Philip-Daniel Ebsworth</CardTitle>
           <CardDescription></CardDescription>
@@ -36,6 +30,5 @@ export default function Page() {
           />
         </CardContent>
       </Card>
-    </ThemeProvider>
   );
 }
