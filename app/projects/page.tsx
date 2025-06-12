@@ -9,9 +9,7 @@ export default function Page() {
             enableSystem
             disableTransitionOnChange
         >
-        <main className="flex flex-col items-center justify-center min-h-screen min-w-screen p-8 ">
-      <ProjectsGrid />
-      </main>
+            <ProjectsGrid />
         </ThemeProvider>
     );
 }

@@ -26,30 +26,23 @@ export function ProjectCard({
     ...props
 }: ProjectCardProps & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>) {
     return (
-        <Card className="w-full @container/card">
-            <div className="overflow-hidden">
-                <img
-                    src={img.toString()}
-                    alt={img.toString()}
-                    className="w-full h-40 rounded-t-xl"
-                    style={{ objectFit: "cover" }}
-                />
-            </div>
+        <Card
+            className="rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 hover:border hover:border-white border-0"
+            {...props}
+        >
+            <Link href={link} target="_blank" rel="noopener noreferrer">
             <CardHeader>
-                <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
+            <img
+            src={img.toString()}
+            alt={img.toString()}
+            className="rounded-xl h-48"
+            />
             </CardHeader>
             <CardContent>
-                <p className="text-sm text-muted-foreground">{content}</p>
+            <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
             </CardContent>
-            <CardFooter>
-                <Link
-                    href={link.toString()}
-                    className="text-primary hover:underline font-medium"
-                >
-                    View Details
-                </Link>
-            </CardFooter>
+            </Link>
         </Card>
     )
 }
