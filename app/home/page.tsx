@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@/app/ui/theme-provider";
 import {
   Card,
   CardContent,
