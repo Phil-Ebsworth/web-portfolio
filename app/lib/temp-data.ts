@@ -18,6 +18,14 @@ const projects = [
     image_url: '/roboarena.PNG',
     link: 'https://github.com/Phil-Ebsworth/Roboarena',
   },
+  {
+    id: 'c3d2f1e0-4b5a-4c6b-9f0e-7c8d9e0f1a2b',
+    title: 'Tick-Tack-Toe',
+    description: 'A simple Tic-Tac-Toe game built with React.',
+    content: 'This is a simple Tic-Tac-Toe game built with React. It features a clean interface, responsive design, and allows two players to compete against each other. The game keeps track of the score and displays the winner at the end of each game.',
+    image_url: '/tick-tack-toe.PNG',
+    link: '/tick-tack-toe',
+  },
 ]
 
 export { projects};

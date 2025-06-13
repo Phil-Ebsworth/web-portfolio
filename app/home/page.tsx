@@ -2,14 +2,16 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import { ProjectsGrid } from "@/app/ui/projects-grid";
 
 
 export default function Page() {
   return (
+    <div >
         <Card className="border-none">
         <CardHeader>
           <CardTitle>Philip-Daniel Ebsworth</CardTitle>
@@ -29,5 +31,9 @@ export default function Page() {
           />
         </CardContent>
       </Card>
+      <Separator className="my-4" />
+      <h1 className="text-2xl font-bold mb-4 text-center">Meine Projekte</h1>
+      <ProjectsGrid />
+    </div>
   );
 }

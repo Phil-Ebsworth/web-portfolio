@@ -1,16 +1,14 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Home, Search, Settings, Files, User } from "lucide-react"
+import { Home, Search, Settings, Files, User, Grid } from "lucide-react"
 
 import clsx from 'clsx';
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarHeader,
   SidebarMenu,
-  useSidebar,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -35,6 +33,11 @@ const items = [
     title: "About",
     url: "/about",
     icon: User,
+  },
+  {
+    title: "Tick-Tack-Toe",
+    url: "/tick-tack-toe",
+    icon: Grid,
   },
 ]
 
