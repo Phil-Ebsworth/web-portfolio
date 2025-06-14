@@ -117,6 +117,25 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
             ? `Zug: ${game.current_turn}`
             : 'Warte auf zweiten Spieler …'}
       </p>
+      {game.status === 'finished' && (
+        <button
+          onClick={async () => {
+            const res = await fetch(`/api/game/${gameId}/rematch`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ player: playerId }),
+            });
+            const result = await res.json();
+            if (!res.ok) {
+              alert('Fehler: ' + result.error);
+            } else {
+              console.log('[Rematch]', result.message);
+            }
+          }}
+          className="mt-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        >
+          🔁 Neues Spiel starten
+        </button>)}
     </main>
   );
 }
@@ -134,6 +153,6 @@ function getWinningLine(board: string): number[] | undefined {
       return line; // Rückgabe der Gewinnlinie
     }
   }
-  
+
   return undefined; // Keine Gewinnlinie gefunden
 }
