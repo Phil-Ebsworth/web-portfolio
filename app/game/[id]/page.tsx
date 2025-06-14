@@ -101,7 +101,12 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
       <p className="text-sm text-gray-500">Spiel-ID: {gameId}</p>
       <p>Du spielst als: <strong>{role}</strong></p>
 
-      <Board board={game.board.split('')} onCellClick={makeMove} />
+      <Board
+        board={game.board.split('')}
+        onCellClick={makeMove}
+        winningLine={getWinningLine(game.board)}
+      />
+
 
       <p>
         {game.status === 'finished'
@@ -114,4 +119,21 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
       </p>
     </main>
   );
+}
+
+function getWinningLine(board: string): number[] | undefined {
+  const lines = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // horizontal
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // vertical
+    [0, 4, 8], [2, 4, 6] // diagonal
+  ];
+
+  for (const line of lines) {
+    const [a, b, c] = line;
+    if (board[a] !== ' ' && board[a] === board[b] && board[a] === board[c]) {
+      return line; // Rückgabe der Gewinnlinie
+    }
+  }
+  
+  return undefined; // Keine Gewinnlinie gefunden
 }
