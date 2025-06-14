@@ -39,6 +39,11 @@ const items = [
     url: "/tick-tack-toe",
     icon: Grid,
   },
+  {
+    title: "Tick-Tack-Toe online",
+    url: "/games",
+    icon: Grid,
+  },
 ]
 
 export function AppSidebar() {
