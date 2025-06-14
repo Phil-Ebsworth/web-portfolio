@@ -2,7 +2,7 @@
 
 import { use, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Board from '@/app/components/Board';
+import Board from '@/app/ui/board';
 
 type GameData = {
   board: string;
@@ -100,14 +100,11 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
       <h1 className="text-3xl font-bold">Tic Tac Toe</h1>
       <p className="text-sm text-gray-500">Spiel-ID: {gameId}</p>
       <p>Du spielst als: <strong>{role}</strong></p>
-
       <Board
         board={game.board.split('')}
         onCellClick={makeMove}
         winningLine={getWinningLine(game.board)}
       />
-
-
       <p>
         {game.status === 'finished'
           ? game.winner === 'D'
