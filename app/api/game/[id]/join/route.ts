@@ -10,9 +10,9 @@ const JoinSchema = z.object({
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-   const { id: gameId } = await params;
+  const { id: gameId } = await params;
   const body = await req.json();
   const parsed = JoinSchema.safeParse(body);
   if (!parsed.success) {
