@@ -6,14 +6,14 @@ type BoardProps = {
 
 export default function Board({ board, onCellClick, winningLine }: BoardProps) {
   return (
-    <div className="grid grid-cols-3 gap-1 w-48 h-48">
+    <div className="grid grid-cols-3 gap-1">
       {board.map((cell, index) => {
         const isWinningCell = winningLine?.includes(index);
         return (
           <button
             key={index}
             onClick={() => onCellClick?.(index)}
-            className={`flex items-center justify-center w-full h-full text-2xl font-bold border border-gray-300 bg-white hover:bg-gray-100 disabled:cursor-not-allowed ${isWinningCell ? 'bg-green-200' : ''}`}
+            className={`flex items-center justify-center w-24 h-24 border border-gray-300 hover:bg-gray-100 disabled:cursor-not-allowed ${isWinningCell ? 'bg-green-200' : ''}`}
             disabled={cell !== ' '}
           >
             {cell !== ' ' ? cell : ''}

@@ -47,7 +47,7 @@ export default function Page() {
       body: JSON.stringify({ player: playerId }),
     });
     const { gameId } = await res.json();
-    router.push(`/game/${gameId}`);
+    router.push(`/tick-tack-toe/game/${gameId}`);
   };
 
   return (
