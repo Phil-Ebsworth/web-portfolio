@@ -2,7 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Trash } from 'lucide-react';
+import { GameCard } from '@/app/ui/game-card';
+import { Plus } from 'lucide-react';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@radix-ui/react-tooltip';
+import { Button } from '@/components/ui/button';
 
 type GameMeta = {
   id: string;
@@ -51,63 +54,55 @@ export default function Page() {
     router.push(`/tick-tack-toe/game/${gameId}`);
   };
 
+  // Spiele löschen
+  const deleteGame = async (gameId: string) => {
+    if (!playerId) return;
+    const res = await fetch(`/api/game/${gameId}/delete`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ player: playerId }),
+    });
+    const result = await res.json();
+    if (res.ok) {
+      setGames(games.filter((g) => g.id !== gameId)); // Lokale Aktualisierung
+    } else {
+      alert('Fehler: ' + result.error);
+    }
+  };
+
   return (
-    <main className="flex flex-col items-center p-6 space-y-6">
-      <h1 className="text-4xl font-bold">🎮 Tic Tac Toe Lobby</h1>
-
-      <button
-        onClick={createGame}
-        className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-      >
-        Neues Spiel erstellen
-      </button>
-
+    <div className="flex-col items-center justify-center w-full h-full p-4">
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button onClick={createGame}>
+          <Plus/>
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Neues Spiel</p>
+        </TooltipContent>
+      </Tooltip>
       <div className="w-full max-w-md mt-4">
         {loading ? (
           <p>Lade laufende Spiele ...</p>
         ) : games.length === 0 ? (
           <p>Keine Spiele gefunden.</p>
         ) : (
-          <div className="space-y-2">
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '95vw' }}>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
             {games.map((game) => (
-              <div
+              <GameCard
                 key={game.id}
-                className="flex justify-between items-center px-4 py-2 border rounded bg-white shadow-sm"
-              >
-                <div>
-                  <p className="font-mono text-sm">{game.id.slice(0, 8)}...</p>
-                  <p className="text-xs text-gray-500">Status: {game.status}</p>
-                </div>
-                <button
-                  onClick={() => router.push(`/tick-tack-toe/game/${game.id}`)}
-                  className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
-                  Beitreten
-                </button>
-                <button
-                  onClick={async () => {
-                    const res = await fetch(`/api/game/${game.id}/delete`, {
-                      method: 'DELETE',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ player: playerId }),
-                    });
-                    const result = await res.json();
-                    if (res.ok) {
-                      setGames(games.filter((g) => g.id !== game.id)); // Lokale Aktualisierung
-                    } else {
-                      alert('Fehler: ' + result.error);
-                    }
-                  }}
-                  className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                >
-                  <Trash className="inline mr-1" />
-                  Löschen
-                </button>
-              </div>
+                gameId={game.id}
+                status={game.status}
+                winner={game.winner}
+                deleteGame={() => deleteGame(game.id)}
+              />
             ))}
+          </div>
           </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }
