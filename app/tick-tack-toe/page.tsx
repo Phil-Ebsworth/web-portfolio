@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Trash } from 'lucide-react';
 
 type GameMeta = {
   id: string;
@@ -82,6 +83,25 @@ export default function Page() {
                   className="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
                 >
                   Beitreten
+                </button>
+                <button
+                  onClick={async () => {
+                    const res = await fetch(`/api/game/${game.id}/delete`, {
+                      method: 'DELETE',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ player: playerId }),
+                    });
+                    const result = await res.json();
+                    if (res.ok) {
+                      setGames(games.filter((g) => g.id !== game.id)); // Lokale Aktualisierung
+                    } else {
+                      alert('Fehler: ' + result.error);
+                    }
+                  }}
+                  className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                >
+                  <Trash className="inline mr-1" />
+                  Löschen
                 </button>
               </div>
             ))}

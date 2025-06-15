@@ -12,7 +12,7 @@ export async function POST(
   req: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const gameId = params.id;
+   const { id: gameId } = await params;
   const body = await req.json();
   const parsed = JoinSchema.safeParse(body);
   if (!parsed.success) {

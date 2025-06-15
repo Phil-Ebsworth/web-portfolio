@@ -1,7 +1,6 @@
 'use client';
 
 import { use, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Board from '@/app/ui/board';
 
 type GameData = {
@@ -45,7 +44,7 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
     };
 
     fetchGame();
-    const interval = setInterval(fetchGame, 2000);
+    const interval = setInterval(fetchGame, 1000);
     return () => clearInterval(interval);
   }, [playerId]);
 
@@ -96,10 +95,12 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   if (!game || !playerId) return <p className="p-6">Lade Spiel ...</p>;
 
   return (
+    
     <main className="flex flex-col items-center p-6 space-y-4">
       <h1 className="text-3xl font-bold">Tic Tac Toe</h1>
       <p className="text-sm text-gray-500">Spiel-ID: {gameId}</p>
       <p>Du spielst als: <strong>{role}</strong></p>
+      
       <Board
         board={game.board.split('')}
         onCellClick={makeMove}
