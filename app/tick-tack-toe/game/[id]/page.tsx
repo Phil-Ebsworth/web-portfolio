@@ -89,6 +89,10 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
     });
 
     const result = await res.json();
+    if (res.ok) {
+      const updated = await fetch(`/api/game/${gameId}`);
+      setGame(await updated.json());
+    }
     if (res.status !== 200) {
       console.warn('Fehler beim Zug:', result.error);
     }
