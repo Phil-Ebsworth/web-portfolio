@@ -97,14 +97,14 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   if (!game || !playerId) return <p className="p-6">Lade Spiel ...</p>;
 
   return (
-    <main className="flex flex-col items-center p-4">
-      <Button
+    <main className="flex flex-col items-center">
+     {/*  <Button
         onClick={() => window.history.back()}
-        className="absolute top-15 left-4"
+        className="absolute top-20 left-4"
         style={{ zIndex: 1000 }}
       >
         <ArrowLeft />
-      </Button>
+      </Button> */}
       <h1 className="text-3xl font-bold">Tic Tac Toe</h1>
       <p className="text-sm text-gray-500">Spiel-ID: {gameId}</p>
       <p>Du spielst als: <strong>{role}</strong></p>
