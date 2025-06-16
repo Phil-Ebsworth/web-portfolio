@@ -101,51 +101,46 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   if (!game || !playerId) return <p className="p-6">Lade Spiel ...</p>;
 
   return (
-    <main className="flex flex-col items-center">
-     {/*  <Button
-        onClick={() => window.history.back()}
-        className="absolute top-20 left-4"
-        style={{ zIndex: 1000 }}
-      >
-        <ArrowLeft />
-      </Button> */}
-      <h1 className="text-3xl font-bold">Tic Tac Toe</h1>
-      <p className="text-sm text-gray-500">Spiel-ID: {gameId}</p>
-      <p>Du spielst als: <strong>{role}</strong></p>
-      <Board
-        board={game.board.split('')}
-        onCellClick={makeMove}
-        winningLine={getWinningLine(game.board)}
-      />
-      <p>
-        {game.status === 'finished'
-          ? game.winner === 'D'
-            ? 'Unentschieden!'
-            : `🎉 Gewinner: ${game.winner}`
-          : game.player_o
-            ? `Zug: ${game.current_turn}`
-            : 'Warte auf zweiten Spieler …'}
-      </p>
-      {game.status === 'finished' && (
-        <button
-          onClick={async () => {
-            const res = await fetch(`/api/game/${gameId}/rematch`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ player: playerId }),
-            });
-            const result = await res.json();
-            if (!res.ok) {
-              alert('Fehler: ' + result.error);
-            } else {
-              console.log('[Rematch]', result.message);
-            }
-          }}
-          className="mt-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-        >
-          🔁 Neues Spiel starten
-        </button>)}
-    </main>
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm">
+        <h1 className="text-3xl font-bold text-center">Tic Tac Toe</h1>
+        <p className="text-sm text-gray-500 text-center">Spiel-ID: {gameId}</p>
+        <p className="text-center">Du spielst als: <strong>{role}</strong></p>
+        <Board
+          board={game.board.split('')}
+          onCellClick={makeMove}
+          winningLine={getWinningLine(game.board)}
+        />
+        <p  className="text-center">
+          {game.status === 'finished'
+            ? game.winner === 'D'
+              ? 'Unentschieden!'
+              : `🎉 Gewinner: ${game.winner}`
+            : game.player_o
+              ? `Zug: ${game.current_turn}`
+              : 'Warte auf zweiten Spieler …'}
+        </p>
+        {game.status === 'finished' && (
+          <button
+            onClick={async () => {
+              const res = await fetch(`/api/game/${gameId}/rematch`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ player: playerId }),
+              });
+              const result = await res.json();
+              if (!res.ok) {
+                alert('Fehler: ' + result.error);
+              } else {
+                console.log('[Rematch]', result.message);
+              }
+            }}
+            className="mt-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+          >
+            🔁 Neues Spiel starten
+          </button>)}
+      </div>
+    </div>
   );
 }
 

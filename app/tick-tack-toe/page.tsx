@@ -6,6 +6,7 @@ import { GameCard } from '@/app/ui/game-card';
 import { Plus } from 'lucide-react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@radix-ui/react-tooltip';
 import { Button } from '@/components/ui/button';
+import { useSession } from 'next-auth/react';
 
 type GameMeta = {
   id: string;
@@ -16,6 +17,9 @@ type GameMeta = {
 };
 
 export default function Page() {
+  const { data: session } = useSession();
+  const username = session?.user?.name ?? 'Gast';
+
   const [games, setGames] = useState<GameMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [playerId, setPlayerId] = useState<string | null>(null);
@@ -71,7 +75,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex-col items-center justify-center w-full h-full p-4">
+    <div className="flex-col justify-center w-full p-4">
       <Tooltip>
         <TooltipTrigger asChild>
           <Button onClick={createGame}>
@@ -82,14 +86,13 @@ export default function Page() {
           <p>Neues Spiel</p>
         </TooltipContent>
       </Tooltip>
-      <div className="w-full max-w-md mt-4">
+      <div className="w-full mt-4">
         {loading ? (
           <p>Lade laufende Spiele ...</p>
         ) : games.length === 0 ? (
           <p>Keine Spiele gefunden.</p>
         ) : (
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '95vw' }}>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+          <div className="flex flex-1 flex-col grid grid-cols-1 gap-2 sm:grid-cols-1 md:grid-cols-2 md:gap-4 lg:grid-cols-3 max-w-7xl mx-auto">
             {games.map((game) => (
               <GameCard
                 key={game.id}
@@ -99,7 +102,6 @@ export default function Page() {
                 deleteGame={() => deleteGame(game.id)}
               />
             ))}
-          </div>
           </div>
         )}
       </div>

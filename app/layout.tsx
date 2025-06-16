@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/app/ui/theme-provider"
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/app/ui/sidebar"
 import { Header } from './ui/header';
+import { SessionProvider } from 'next-auth/react';
 
 
 
@@ -31,13 +32,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider defaultOpen={false}>
-            <AppSidebar />
-            <SidebarInset>
-              <Header />
-              <main className="flex">{children}</main>
-            </SidebarInset>
-          </SidebarProvider>
+          <SessionProvider>
+            <SidebarProvider defaultOpen={false}>
+              <AppSidebar />
+              <SidebarInset>
+                <Header />
+                <main className="flex">
+                  {children}
+                </main>
+              </SidebarInset>
+            </SidebarProvider>
+          </SessionProvider>
         </ThemeProvider>
         <SpeedInsights />
       </body>
