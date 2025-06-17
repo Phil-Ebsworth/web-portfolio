@@ -1,20 +1,22 @@
+import { NextRequest, NextResponse } from 'next/server';
 import postgres from 'postgres';
-import { NextResponse } from 'next/server';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-export async function POST() {
-  try {
-    const result = await sql`
-      INSERT INTO games (board, current_turn, status)
-      VALUES ('         ', 'X', 'waiting')
-      RETURNING id;
-    `;
-    const gameId = result[0].id;
+export async function POST(req: NextRequest) {
+  const { playerId , gameName, username } = await req.json();
 
-    return NextResponse.json({ gameId });
-  } catch (error) {
-    console.error('Fehler beim Erstellen des Spiels:', error);
-    return NextResponse.json({ error: 'Fehler beim Erstellen' }, { status: 500 });
+  if (!playerId || !gameName) {
+    return NextResponse.json({ error: 'player and name required' }, { status: 400 });
   }
+
+  const result = await sql`
+    INSERT INTO games (player_x, current_turn, status, game_name, player_x_name)
+    VALUES (${playerId}, 'X', 'waiting', ${gameName}, ${username} )
+    RETURNING id;
+  `;
+
+  const gameId = result[0].id;
+
+  return NextResponse.json({ gameId });
 }

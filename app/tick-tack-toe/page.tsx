@@ -7,6 +7,7 @@ import { Plus } from 'lucide-react';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@radix-ui/react-tooltip';
 import { Button } from '@/components/ui/button';
 import { useSession } from 'next-auth/react';
+import { NewGame } from '../ui/new-game';
 
 type GameMeta = {
   id: string;
@@ -20,6 +21,7 @@ export default function Page() {
   const { data: session } = useSession();
   const username = session?.user?.name ?? 'Gast';
 
+
   const [games, setGames] = useState<GameMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [playerId, setPlayerId] = useState<string | null>(null);
@@ -27,6 +29,10 @@ export default function Page() {
 
   // Spieler-ID setzen (einmalig)
   useEffect(() => {
+    if (session?.user?.id) {
+      setPlayerId(session.user.id);
+      return;
+    }
     let stored = localStorage.getItem('playerId');
     if (!stored) {
       stored = crypto.randomUUID();
@@ -76,16 +82,7 @@ export default function Page() {
 
   return (
     <div className="flex-col justify-center w-full p-4">
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button onClick={createGame}>
-          <Plus/>
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Neues Spiel</p>
-        </TooltipContent>
-      </Tooltip>
+      <NewGame />
       <div className="w-full mt-4">
         {loading ? (
           <p>Lade laufende Spiele ...</p>

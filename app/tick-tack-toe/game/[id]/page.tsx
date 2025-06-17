@@ -4,6 +4,13 @@ import { use, useEffect, useState } from 'react';
 import Board from '@/app/ui/board';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useSession } from 'next-auth/react';
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
+import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { SidebarMenuButton } from '@/components/ui/sidebar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { X, Circle } from 'lucide-react';
+import { ScoreBoard } from '@/app/ui/score-board';
 
 type GameData = {
   board: string;
@@ -12,6 +19,9 @@ type GameData = {
   player_x: string | null;
   player_o: string | null;
   winner: string | null;
+  game_name: string;
+  player_x_name: string | null;
+  player_o_name: string | null;
 };
 
 export default function GamePage({ params }: { params: Promise<{ id: string }> }) {
@@ -19,9 +29,16 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   const [playerId, setPlayerId] = useState<string | null>(null);
   const [game, setGame] = useState<GameData | null>(null);
   const [role, setRole] = useState<'X' | 'O' | 'Zuschauer'>('Zuschauer');
+  const [playerName, setPlayerName] = useState<string | null>(null);
+
+  const { data: session } = useSession();
 
   // 1. Spieler-ID initialisieren (einmalig)
   useEffect(() => {
+    if (session?.user?.id) {
+      setPlayerId(session.user.id);
+      return;
+    }
     let stored = localStorage.getItem('playerId');
     if (!stored) {
       stored = crypto.randomUUID();
@@ -39,10 +56,10 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
       const data = await res.json();
       setGame(data);
 
-      // Spielerrolle bestimmen
       if (data.player_x === playerId) setRole('X');
       else if (data.player_o === playerId) setRole('O');
       else setRole('Zuschauer');
+      setPlayerName(session?.user?.name ?? 'Gast');
     };
 
     fetchGame();
@@ -103,9 +120,9 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
-        <h1 className="text-3xl font-bold text-center">Tic Tac Toe</h1>
-        <p className="text-sm text-gray-500 text-center">Spiel-ID: {gameId}</p>
-        <p className="text-center">Du spielst als: <strong>{role}</strong></p>
+        <h1 className="text-3xl font-bold text-center">{game.game_name}</h1>
+        <ScoreBoard player_x_name={game.player_x_name} player_o_name={game.player_o_name}/>
+        <p className="text-center mt-4 mb-4">Du spielst als: <strong>{role}</strong></p>
         <Board
           board={game.board.split('')}
           onCellClick={makeMove}
