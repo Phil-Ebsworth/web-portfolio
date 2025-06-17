@@ -31,7 +31,7 @@ export function PlayerBoard({ playerName, role }: { playerName: string | null; r
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{playerName ? playerName : "Gast"}</span>
                 <span className="text-muted-foreground truncate text-xs">
-                  Spielt als X
+                  Spielt als {role === 'X' ? 'X' : 'O'}
                 </span>
               </div>
               {/* <IconDotsVertical className="ml-auto size-4" /> */}
