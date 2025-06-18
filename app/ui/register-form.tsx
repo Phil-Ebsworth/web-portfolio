@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label"
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from "next-auth/react";
 
 export function RegisterForm({
   className,
@@ -36,9 +37,15 @@ export function RegisterForm({
     if (!res.ok) {
       setError('Registration failed');
     } else {
-      router.push('/login');
-    }
+    signIn('credentials', {
+        username,
+        password,
+        redirect: false,
+    }).then((res) => {
+      router.push('/tick-tack-toe');
+    });
   };
+}
 
     return (
         <div className="flex flex-col gap-6">
@@ -78,11 +85,8 @@ export function RegisterForm({
                             </div>
                             <div className="flex flex-col gap-3">
                                 <Button type="submit" className="w-full">
-                                    Login
+                                    Register
                                 </Button>
-                                {/* <Button variant="outline" className="w-full">
-                                    Login with Google
-                                </Button> */}
                             </div>
                         </div>
                         <div className="mt-4 text-center text-sm">

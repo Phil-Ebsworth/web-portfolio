@@ -15,10 +15,11 @@ import { Label } from "@/components/ui/label"
 import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Separator } from "@/components/ui/separator";
 
 export function LoginForm({
-  className,
-  ...props
+    className,
+    ...props
 }: React.ComponentProps<"div">) {
     const router = useRouter();
     const [username, setUsername] = useState('');
@@ -38,9 +39,23 @@ export function LoginForm({
         if (res?.error) {
             setError('Login fehlgeschlagen');
         } else {
-            router.push('/');
+            router.push('/tick-tack-toe');
         }
     };
+
+    const handleGuestLogin = async () => {
+        const res = await signIn('credentials', {
+            username: 'Gast',
+            password: 'Gast',
+            redirect: false,
+        });
+
+        if (res?.error) {
+            setError('Gast-Login fehlgeschlagen');
+        } else {
+            router.push('/tick-tack-toe');
+        }
+    }
 
     return (
         <div className="flex flex-col gap-6">
@@ -88,9 +103,6 @@ export function LoginForm({
                                 <Button type="submit" className="w-full">
                                     Login
                                 </Button>
-                                {/* <Button variant="outline" className="w-full">
-                                    Login with Google
-                                </Button> */}
                             </div>
                         </div>
                         <div className="mt-4 text-center text-sm">
@@ -98,6 +110,20 @@ export function LoginForm({
                             <a href="/register" className="underline underline-offset-4">
                                 Sign up
                             </a>
+                        </div>
+                        <Separator
+                            orientation="horizontal"
+                            className="mt-4 bg-gray-400"
+                        />
+                        <div className="flex justify-center mt-4">
+                            <span className="text-center">
+                                oder
+                            </span>
+                        </div>
+                        <div className="mt-4">
+                            <Button className="w-full" onClick={handleGuestLogin}>
+                                Als Gast spielen
+                            </Button>
                         </div>
                     </form>
                 </CardContent>
