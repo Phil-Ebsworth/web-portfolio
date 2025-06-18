@@ -3,9 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { GameCard } from '@/app/ui/game-card';
-import { Plus } from 'lucide-react';
-import { Tooltip, TooltipTrigger, TooltipContent } from '@radix-ui/react-tooltip';
-import { Button } from '@/components/ui/button';
 import { useSession } from 'next-auth/react';
 import { NewGame } from '../ui/new-game';
 
