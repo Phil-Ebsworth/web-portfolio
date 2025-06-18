@@ -27,7 +27,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
         if (!game) return NextResponse.json({ error: 'Spiel nicht gefunden' }, { status: 404 });
 
-        const { board, current_turn, player_x, player_o, status } = game;
+        const { board, current_turn, player_x, player_o, status, player_x_score, player_o_score } = game;
 
         if (status !== 'in_progress') {
             return NextResponse.json({ error: 'Spiel ist nicht aktiv' }, { status: 400 });
@@ -59,10 +59,13 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
         await sql`
         UPDATE games
-        SET board = ${boardArr.join('')},
-        current_turn = ${symbol === 'X' ? 'O' : 'X'},
-        status = ${newStatus},
-        winner = ${winnerChar}
+        SET 
+            board = ${boardArr.join('')},
+            current_turn = ${symbol === 'X' ? 'O' : 'X'},
+            status = ${newStatus},
+            winner = ${winnerChar},
+            player_x_score = ${winnerChar === 'X' ? player_x_score + 1 : player_x_score},
+            player_o_score = ${winnerChar === 'O' ? player_o_score + 1 : player_o_score}
         WHERE id = ${gameId};
         `;
 

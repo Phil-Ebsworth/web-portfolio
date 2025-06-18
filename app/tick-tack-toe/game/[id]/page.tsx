@@ -22,6 +22,8 @@ type GameData = {
   game_name: string;
   player_x_name: string | null;
   player_o_name: string | null;
+  player_x_score: number;
+  player_o_score: number;
 };
 
 export default function GamePage({ params }: { params: Promise<{ id: string }> }) {
@@ -121,7 +123,7 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm">
         <h1 className="text-3xl font-bold text-center">{game.game_name}</h1>
-        <ScoreBoard player_x_name={game.player_x_name} player_o_name={game.player_o_name}/>
+        <ScoreBoard player_x_name={game.player_x_name} player_o_name={game.player_o_name} score_x={game.player_x_score} score_o={game.player_o_score}/>
         <p className="text-center mt-4 mb-4">Du spielst als: <strong>{role}</strong></p>
         <Board
           board={game.board.split('')}
