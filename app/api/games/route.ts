@@ -6,7 +6,7 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 export async function GET() {
   try {
     const result = await sql`
-      SELECT id, status, player_x, player_o, winner, created_at
+      SELECT id, status, player_x, player_o, winner, created_at, player_x_name, player_o_name, game_name
       FROM games
       ORDER BY created_at DESC
       LIMIT 20;

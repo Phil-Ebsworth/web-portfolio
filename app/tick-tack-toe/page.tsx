@@ -15,17 +15,26 @@ type GameMeta = {
   player_x: string | null;
   player_o: string | null;
   winner: string | null;
+  created_at: string;
+  player_x_name?: string;
+  player_o_name?: string;
+  game_name?: string;
 };
 
 export default function Page() {
   const { data: session } = useSession();
   const username = session?.user?.name ?? 'Gast';
-
-
   const [games, setGames] = useState<GameMeta[]>([]);
   const [loading, setLoading] = useState(true);
   const [playerId, setPlayerId] = useState<string | null>(null);
   const router = useRouter();
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!session) {
+      router.push('/login');
+    }
+  }, [session, router]);
 
   // Spieler-ID setzen (einmalig)
   useEffect(() => {
@@ -51,18 +60,6 @@ export default function Page() {
     };
     fetchGames();
   }, []);
-
-  // Neues Spiel erstellen
-  const createGame = async () => {
-    if (!playerId) return;
-    const res = await fetch('/api/game', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ player: playerId }),
-    });
-    const { gameId } = await res.json();
-    router.push(`/tick-tack-toe/game/${gameId}`);
-  };
 
   // Spiele löschen
   const deleteGame = async (gameId: string) => {
@@ -96,6 +93,9 @@ export default function Page() {
                 gameId={game.id}
                 status={game.status}
                 winner={game.winner}
+                playerXName={game.player_x_name? game.player_x_name : null}
+                playerOName={game.player_o_name? game.player_o_name : null}
+                gameName={game.game_name || 'Unbenanntes Spiel'}
                 deleteGame={() => deleteGame(game.id)}
               />
             ))}
