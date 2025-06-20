@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { ProjectsGrid } from "@/app/ui/projects-grid";
+import { ProjectsGrid } from "@/app/projects/ui/projects-grid";
 
 
 export default function Page() {

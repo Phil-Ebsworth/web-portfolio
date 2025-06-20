@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { PlayerBoard } from "./player-board";
 
 export function ScoreBoard({

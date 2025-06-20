@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { GameCard } from '@/app/ui/game-card';
+import { GameCard } from '@/app/tick-tack-toe/ui/game-card';
 import { useSession } from 'next-auth/react';
-import { NewGame } from '../ui/new-game';
+import { NewGame } from './ui/new-game';
+import { GamesGridSkeleton, ProjectsGridSkeleton } from '../ui/skeletons';
 
 type GameMeta = {
   id: string;
@@ -79,7 +80,7 @@ export default function Page() {
       <NewGame />
       <div className="w-full mt-4">
         {loading ? (
-          <p>Lade laufende Spiele ...</p>
+          <GamesGridSkeleton />
         ) : games.length === 0 ? (
           <p>Keine Spiele gefunden.</p>
         ) : (
@@ -90,12 +91,13 @@ export default function Page() {
                 gameId={game.id}
                 status={game.status}
                 winner={game.winner}
-                playerXName={game.player_x_name? game.player_x_name : null}
-                playerOName={game.player_o_name? game.player_o_name : null}
+                playerXName={game.player_x_name ? game.player_x_name : null}
+                playerOName={game.player_o_name ? game.player_o_name : null}
                 gameName={game.game_name || 'Unbenanntes Spiel'}
                 deleteGame={() => deleteGame(game.id)}
               />
             ))}
+
           </div>
         )}
       </div>

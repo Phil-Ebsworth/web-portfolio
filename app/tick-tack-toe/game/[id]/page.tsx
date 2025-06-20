@@ -1,16 +1,9 @@
 'use client';
 
 import { use, useEffect, useState } from 'react';
-import Board from '@/app/ui/board';
-import { ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import Board from '@/app/tick-tack-toe/ui/board';
 import { useSession } from 'next-auth/react';
-import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
-import { DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { SidebarMenuButton } from '@/components/ui/sidebar';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { X, Circle } from 'lucide-react';
-import { ScoreBoard } from '@/app/ui/score-board';
+import { ScoreBoard } from '@/app/tick-tack-toe/ui/score-board';
 
 type GameData = {
   board: string;
@@ -120,7 +113,7 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   if (!game || !playerId) return <p className="p-6">Lade Spiel ...</p>;
 
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+    <div className="flex min-h-svh w-full items-center justify-center  md:p-10">
       <div className="w-full max-w-sm">
         <h1 className="text-3xl font-bold text-center">{game.game_name}</h1>
         <ScoreBoard player_x_name={game.player_x_name} player_o_name={game.player_o_name} score_x={game.player_x_score} score_o={game.player_o_score}/>

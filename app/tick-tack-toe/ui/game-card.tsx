@@ -33,7 +33,7 @@ export function GameCard({
                 <CardTitle>
                     <div className="flex items-start justify-between w-full">
                         <div>
-                             <span className="text-bg">{gameName}</span> <br />
+                             <span className="text-xl">{gameName}</span> <br />
                              
                         </div>
 
