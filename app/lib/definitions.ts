@@ -12,3 +12,14 @@ export type User = {
     username: string;
     password: string;
 };
+
+export type TimelineEvent = {
+    duration: number;
+    begin: string;
+    end: string;
+    title: string;
+    company: string;
+    location: string;
+    description: string;
+    link: string;
+};
