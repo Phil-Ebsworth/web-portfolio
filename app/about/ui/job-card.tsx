@@ -62,14 +62,3 @@ export default function JobCard({ event, idx, openIdxArrJob, handleToggleIdx }: 
         </Card >
     );
 }
-
-function ReadMoreButton({ readMoreLink }: { readMoreLink?: string }) {
-                if (!readMoreLink) return null;
-                return (
-                    <Button asChild variant="link" className="p-0 h-auto mt-2">
-                        <Link href={readMoreLink} target="_blank" rel="noopener noreferrer">
-                            Read more
-                        </Link>
-                    </Button>
-                );
-            }

@@ -16,12 +16,9 @@
                 "Sicherstellung eines erstklassigen Servicelevels",
                 "Führung und Motivation des Teams",
                 "Organisation von Schichten",
-                "Lagerverwaltung",
-                "Schnelle Problemlösung bei technischen Störungen und Kundenanforderungen",
-                "Kommunikation mit Eventleitung und anderen Abteilungen",
-                "Flexibles Reagieren auf Veränderungen im Eventverlauf"
+                "Lagerverwaltung"
             ],
-            "link": "events/barchef.md"
+            "link": "about/events/barchef.md"
 
         },
         {
@@ -40,12 +37,9 @@
                 "Sicherstellung eines erstklassigen Servicelevels",
                 "Führung und Motivation des Teams",
                 "Organisation von Schichten",
-                "Lagerverwaltung",
-                "Schnelle Problemlösung bei technischen Störungen und Kundenanforderungen",
-                "Kommunikation mit Eventleitung und anderen Abteilungen",
-                "Flexibles Reagieren auf Veränderungen im Eventverlauf"
+                "Lagerverwaltung"
             ],
-            "link": "events/sommelier.md"
+            "link": "about/events/sommelier.md"
         }
     ],
     "timeline_uni": [
@@ -60,13 +54,8 @@
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
             "description": "Im Bachelorstudium Medieninformatik an der Universität Tübingen habe ich fundierte Kenntnisse in Softwareentwicklung, Webtechnologien und Medienproduktion erworben. Durch Projekte mit Python, JavaScript, TypeScript, React und Next.js konnte ich meine technischen und analytischen Fähigkeiten praxisnah ausbauen. Ein Schwerpunkt lag auf der Gestaltung von User Interfaces und der Entwicklung datenbankgestützter Webanwendungen.",
             "tasks": [
-                "Entwicklung von Webanwendungen mit React und Next.js",
-                "Implementierung von RESTful APIs",
-                "Datenbankdesign und -verwaltung",
-                "Durchführung von Usability-Tests",
-                "Erstellung von Prototypen und Wireframes"
             ],
-            "link": "events/medieninformatik.md"
+            "link": "about/events/medieninformatik.md"
         },
         {
             "duration": 2,
@@ -79,12 +68,8 @@
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
             "description": "Während meiner Ausbildung zum Sommelier im Weinhaus Beck in Tübingen habe ich umfassende Kenntnisse in Weinberatung, Verkauf und Pflege erworben. Zu meinen Aufgaben gehörten die Auswahl und Präsentation hochwertiger Weine, Durchführung von Verkostungen sowie Planung und Organisation von Veranstaltungen. Zudem habe ich Teammitglieder geschult und Kunden individuell beraten, um exzellenten Service und hohe Kundenzufriedenheit zu gewährleisten.",
             "tasks": [
-                "Durchführung von Weinverkostungen",
-                "Planung und Organisation von Veranstaltungen",
-                "Schulung von Teammitgliedern",
-                "Kundenberatung und -betreuung"
             ],
-            "link": "events/sommelier_ausbildung.md"
+            "link": "about/events/sommelier_ausbildung.md"
         },
         {
             "duration": 3,
@@ -97,12 +82,8 @@
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
             "description": "Im Philosophiestudium an der Universität Tübingen habe ich mich mit Ethik, Erkenntnistheorie und Metaphysik beschäftigt. Dabei habe ich analytisches Denken, wissenschaftliches Schreiben und die Fähigkeit zur strukturierten Argumentation entwickelt.",
             "tasks": [
-                "Analyse und Interpretation philosophischer Texte",
-                "Durchführung von Seminaren und Workshops",
-                "Betreuung von Studierenden bei Abschlussarbeiten",
-                "Mitwirkung an Forschungsprojekten"
             ],
-            "link": "events/philosophie.md"
+            "link": "about/events/philosophie.md"
         }
     ]
 }
