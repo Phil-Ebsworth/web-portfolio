@@ -38,9 +38,17 @@ export default function JobCard({ event, idx, openIdxArrJob, handleToggleIdx }: 
             {
                 openIdxArrJob[idx] && (
                     <CardContent>
-                        <p className="text-left mt-2">
+                        <p className="text-left mt-2 mb-4">
                             {event.description}
                         </p>
+                        <h2 className="underline">Aufgaben:</h2>
+                        {event.tasks && event.tasks.length > 0 && (
+                            <ul className="list-disc list-inside mt-2">
+                                {event.tasks.map((task: string, i: number) => (
+                                    <li key={i}>{task}</li>
+                                ))}
+                            </ul>
+                        )}
                         <Link href={`${event.link}`} passHref>
                             <Button variant="link" className="p-0 h-auto mt-2">
                                 Read more

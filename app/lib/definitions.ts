@@ -21,5 +21,6 @@ export type TimelineEvent = {
     company: string;
     location: string;
     description: string;
+    tasks: string[];
     link: string;
 };

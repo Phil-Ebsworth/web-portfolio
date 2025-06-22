@@ -9,7 +9,18 @@
             "companyLink": "https://www.instagram.com/last.resorttuebingen/?hl=de",
             "location": "Tübingen, Deutschland",
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
-            "description": "Verantwortlich für die gesamte Organisation und das reibungslose Management des Barbetriebs in einem schnelllebigen Eventumfeld. Dazu gehörte die effiziente Koordination von Arbeitsabläufen, die Sicherstellung eines erstklassigen Servicelevels sowie die Führung eines Teams, um eine hohe Kundenzufriedenheit zu gewährleisten. Neben der Organisation von Schichten und der Lagerverwaltung lag ein weiterer Fokus auf der schnellen und effektiven Problemlösung in unerwarteten Situationen, wie etwa technischen Störungen oder anspruchsvollen Kundenanforderungen. Dies erforderte ausgeprägte Fähigkeiten in Stressbewältigung, Teamführung und Kommunikation. Zudem war es entscheidend, durch die enge Zusammenarbeit mit der Eventleitung und anderen Abteilungen stets eine hohe Flexibilität zu bewahren und schnell auf Veränderungen im Eventverlauf zu reagieren",
+            "description": "Verantwortlich für Organisation und Management des Barbetriebs, Koordination von Abläufen, Führung des Teams und Sicherstellung eines hohen Servicelevels. Flexibles Reagieren auf Veränderungen und schnelle Problemlösung in einem dynamischen Eventumfeld.",
+            "tasks": [
+                "Organisation und Management des Barbetriebs",
+                "Koordination von Arbeitsabläufen",
+                "Sicherstellung eines erstklassigen Servicelevels",
+                "Führung und Motivation des Teams",
+                "Organisation von Schichten",
+                "Lagerverwaltung",
+                "Schnelle Problemlösung bei technischen Störungen und Kundenanforderungen",
+                "Kommunikation mit Eventleitung und anderen Abteilungen",
+                "Flexibles Reagieren auf Veränderungen im Eventverlauf"
+            ],
             "link": "events/barchef.md"
 
         },
@@ -22,7 +33,18 @@
             "companyLink": "https://weinhaus-beck.de/",
             "location": "Tübingen, Deutschland",
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
-            "description": "Verantwortlich für die Leitung des Verkaufsbereichs mit dem Ziel, die Bedürfnisse der Kunden optimal zu erfüllen und die Verkaufsstrategien kontinuierlich zu optimieren. Beratung der Kunden hinsichtlich hochwertiger Weinauswahl und maßgeschneiderter Empfehlungen, stets mit dem Fokus auf Umsatzsteigerung und langfristige Kundenbindung. Planung und Durchführung von exklusiven Degustationen sowie maßgeschneiderten Kundenveranstaltungen, um das Weinerlebnis zu bereichern und die Kundenbindung zu fördern. Diese Rolle erforderte exzellente Kommunikationsfähigkeiten, eine ausgeprägte Kundenorientierung sowie die Fähigkeit, Verkaufsstrategien erfolgreich umzusetzen und das Team zu motivieren, das Verkaufsziel zu erreichen.",
+            "description": "Leitung des Verkaufsbereichs, Beratung der Kunden bei der Weinauswahl, Planung und Durchführung von Degustationen und Kundenveranstaltungen. Fokus auf Kundenbindung, Umsatzsteigerung und Umsetzung von Verkaufsstrategien.",
+            "tasks": [
+                "Organisation und Management des Barbetriebs",
+                "Koordination von Arbeitsabläufen",
+                "Sicherstellung eines erstklassigen Servicelevels",
+                "Führung und Motivation des Teams",
+                "Organisation von Schichten",
+                "Lagerverwaltung",
+                "Schnelle Problemlösung bei technischen Störungen und Kundenanforderungen",
+                "Kommunikation mit Eventleitung und anderen Abteilungen",
+                "Flexibles Reagieren auf Veränderungen im Eventverlauf"
+            ],
             "link": "events/sommelier.md"
         }
     ],
@@ -36,7 +58,14 @@
             "companyLink": "https://uni-tuebingen.de/",
             "location": "Tübingen, Deutschland",
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
-            "description": "Im Rahmen meines Bachelorstudiums der Medieninformatik an der Eberhard Karls Universität Tübingen konnte ich fundierte Kenntnisse in den Bereichen Softwareentwicklung, Webtechnologien, Medienproduktion und Datenanalyse erwerben. Durch praxisorientierte Projekte und die Anwendung von Programmiersprachen wie Python, JavaScript und TypeScript sowie Frameworks wie React und Next.js, habe ich meine technischen Fähigkeiten kontinuierlich ausgebaut. Ein weiterer Schwerpunkt lag auf der interdisziplinären Zusammenarbeit, sowohl in Gruppenprojekten als auch bei der Durchführung eigener Forschung. Dies ermöglichte mir, meine analytischen Fähigkeiten zu schärfen, innovative Lösungen zu entwickeln und komplexe technische Konzepte zu verstehen und zu kommunizieren. Darüber hinaus habe ich praktische Erfahrungen in der Gestaltung von User Interfaces und der Implementierung von datenbankgestützten Webanwendungen gesammelt, was mich sowohl in meiner technischen Expertise als auch in meiner Fähigkeit zur benutzerzentrierten Entwicklung gestärkt hat.",
+            "description": "Im Bachelorstudium Medieninformatik an der Universität Tübingen habe ich fundierte Kenntnisse in Softwareentwicklung, Webtechnologien und Medienproduktion erworben. Durch Projekte mit Python, JavaScript, TypeScript, React und Next.js konnte ich meine technischen und analytischen Fähigkeiten praxisnah ausbauen. Ein Schwerpunkt lag auf der Gestaltung von User Interfaces und der Entwicklung datenbankgestützter Webanwendungen.",
+            "tasks": [
+                "Entwicklung von Webanwendungen mit React und Next.js",
+                "Implementierung von RESTful APIs",
+                "Datenbankdesign und -verwaltung",
+                "Durchführung von Usability-Tests",
+                "Erstellung von Prototypen und Wireframes"
+            ],
             "link": "events/medieninformatik.md"
         },
         {
@@ -48,7 +77,13 @@
             "companyLink": "https://weinhaus-beck.de/",
             "location": "Tübingen, Deutschland",
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
-            "description": "Während meiner Ausbildung zum Sommelier im Weinhaus Beck in Tübingen konnte ich umfassende Kenntnisse im Bereich Weinberatung, -verkauf und -pflege erwerben. Ich war verantwortlich für die Auswahl und Präsentation hochwertiger Weine, die speziell auf die Bedürfnisse und Wünsche der Kunden abgestimmt wurden. Ein zentraler Bestandteil meiner Ausbildung war die Durchführung von Weinverkostungen sowie die Planung und Organisation von exklusiven Veranstaltungen und Degustationen, um den Kunden ein einzigartiges Erlebnis zu bieten. Besondere Aufmerksamkeit galt der Schulung von Teammitgliedern, um sicherzustellen, dass alle Mitarbeiter über fundiertes Weinwissen verfügten und exzellenten Service bieten konnten. Meine Ausbildung förderte nicht nur meine Fachkompetenz im Bereich Wein, sondern auch meine Fähigkeiten in der Kundenberatung, im Verkauf und in der Führung von Teams. Dabei war es mir stets wichtig, eine enge Beziehung zu den Kunden aufzubauen und durch persönliche Empfehlungen die Kundenzufriedenheit und -bindung langfristig zu steigern.",
+            "description": "Während meiner Ausbildung zum Sommelier im Weinhaus Beck in Tübingen habe ich umfassende Kenntnisse in Weinberatung, Verkauf und Pflege erworben. Zu meinen Aufgaben gehörten die Auswahl und Präsentation hochwertiger Weine, Durchführung von Verkostungen sowie Planung und Organisation von Veranstaltungen. Zudem habe ich Teammitglieder geschult und Kunden individuell beraten, um exzellenten Service und hohe Kundenzufriedenheit zu gewährleisten.",
+            "tasks": [
+                "Durchführung von Weinverkostungen",
+                "Planung und Organisation von Veranstaltungen",
+                "Schulung von Teammitgliedern",
+                "Kundenberatung und -betreuung"
+            ],
             "link": "events/sommelier_ausbildung.md"
         },
         {
@@ -60,7 +95,13 @@
             "companyLink": "https://uni-tuebingen.de/",
             "location": "Tübingen, Deutschland",
             "locationLink": "https://www.google.com/search?q=T%C3%BCbingen&sca_esv=880447038e84d9f5&sxsrf=AE3TifOAgfQc8jff-FWdKyaeD5rw0xm5jQ%3A1750603990880&ei=1hhYaMrCNdWFxc8PyaLIqAo&ved=0ahUKEwjKhZOIpIWOAxXVQvEDHUkREqUQ4dUDCBA&uact=5&oq=T%C3%BCbingen&gs_lp=Egxnd3Mtd2l6LXNlcnAiCVTDvGJpbmdlbjIKECMYgAQYJxiKBTIKECMYgAQYJxiKBTIEECMYJzINEC4YgAQYsQMYFBiHAjIFEC4YgAQyDRAAGIAEGLEDGBQYhwIyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMhwQLhiABBixAxgUGIcCGJcFGNwEGN4EGOAE2AEBSNkkUKoGWJEKcAF4AZABAJgBbKABuAKqAQMxLjK4AQPIAQD4AQGYAgSgAtYCwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIZEC4YgAQYsAMYQxjHARjIAxiKBRivAdgBAcICBxAjGLECGCfCAgcQLhiABBgKwgIHEAAYgAQYCsICChAAGIAEGLEDGArCAhYQLhiABBgKGJcFGNwEGN4EGOAE2AEBmAMAiAYBkAYTugYGCAEQARgJkgcDMS4zoAeTK7IHAzAuM7gHzgLCBwUyLTMuMcgHGg&sclient=gws-wiz-serp",
-            "description": "Im Rahmen meines Bachelorstudiums in Philosophie an der Eberhard Karls Universität Tübingen habe ich mich intensiv mit den grundlegenden Fragen der menschlichen Existenz, Ethik, Erkenntnistheorie und Metaphysik beschäftigt. Das Studium ermöglichte es mir, kritisches Denken zu entwickeln und komplexe philosophische Konzepte zu analysieren und zu hinterfragen. Besonders fasziniert hat mich die Auseinandersetzung mit unterschiedlichen philosophischen Strömungen und Denkschulen, sowohl aus der westlichen als auch der östlichen Tradition. Neben den theoretischen Aspekten lag ein Fokus auf der Entwicklung von Fähigkeiten in der Argumentation, im wissenschaftlichen Schreiben sowie in der systematischen und interdisziplinären Herangehensweise an Probleme. Die Fähigkeit, abstrakte Ideen zu strukturieren und klar zu kommunizieren, wurde durch zahlreiche Essays und Diskussionen weiter gestärkt. Das Studium hat mich zudem in meiner Fähigkeit gefördert, komplexe Themen aus verschiedenen Perspektiven zu betrachten und fundierte, gut begründete Urteile zu fällen.",
+            "description": "Im Philosophiestudium an der Universität Tübingen habe ich mich mit Ethik, Erkenntnistheorie und Metaphysik beschäftigt. Dabei habe ich analytisches Denken, wissenschaftliches Schreiben und die Fähigkeit zur strukturierten Argumentation entwickelt.",
+            "tasks": [
+                "Analyse und Interpretation philosophischer Texte",
+                "Durchführung von Seminaren und Workshops",
+                "Betreuung von Studierenden bei Abschlussarbeiten",
+                "Mitwirkung an Forschungsprojekten"
+            ],
             "link": "events/philosophie.md"
         }
     ]
