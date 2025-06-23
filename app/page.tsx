@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="relative h-screen w-full overflow-hidden text-white">
       {/* Video-Hintergrund */}
@@ -13,7 +14,7 @@ export default function Home() {
         loop
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src="/background.mp4" type="video/mp4" />
+        <source src="/silk.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -28,7 +29,7 @@ export default function Home() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight"
         >
-          Willkommen bei <span className="text-primary">NextVision</span>
+          <span className="text-primary">Philip-Daniel Ebsworth</span>
         </motion.h1>
 
         <motion.p
@@ -47,7 +48,9 @@ export default function Home() {
           className="mt-8"
         >
           <Button size="lg" className="text-lg">
-            Projekt starten
+            <Link href="/main/start">
+              Stöbern
+            </Link>
           </Button>
         </motion.div>
       </div>

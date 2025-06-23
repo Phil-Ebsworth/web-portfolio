@@ -33,15 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SessionProvider>
-            <SidebarProvider defaultOpen={false}>
-              <AppSidebar />
-              <SidebarInset>
-                <Header />
-                <main className="flex">
-                  {children}
-                </main>
-              </SidebarInset>
-            </SidebarProvider>
+            {children}
           </SessionProvider>
         </ThemeProvider>
         <SpeedInsights />

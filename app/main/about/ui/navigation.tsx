@@ -12,7 +12,7 @@ export default function Navigation() {
         <NavigationMenu >
                 <NavigationMenuList>
                     <NavigationMenuItem className="">
-                            <Link href="/about" passHref>
+                            <Link href="/main/about" passHref>
                                 <span className="text-lg font-semibold ml-2 mr-2">Profil</span>
                             </Link>
                     </NavigationMenuItem>
@@ -21,7 +21,7 @@ export default function Navigation() {
                   className="mr-4 ml-4 data-[orientation=vertical]:h-4"
                 />
                     <NavigationMenuItem>
-                            <Link href="/about/lebenslauf" passHref>
+                            <Link href="/main/about/lebenslauf" passHref>
                                 <span className="text-lg font-semibold ml-2 mr-2">Lebenslauf</span>
                             </Link>
                     </NavigationMenuItem>

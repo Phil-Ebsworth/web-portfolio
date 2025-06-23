@@ -1,14 +1,3 @@
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
-import Link from "next/link";
 import Navigation from "./ui/navigation";
  
 export default function Layout({ children }: { children: React.ReactNode }) {

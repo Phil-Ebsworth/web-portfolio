@@ -1,4 +1,4 @@
-import { ProjectsGrid } from "@/app/projects/ui/projects-grid";
+import { ProjectsGrid } from "./ui/projects-grid";
 
 export default function Page() {
     return (

@@ -19,27 +19,26 @@ import {
 import { usePathname } from "next/navigation"
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
-import { Button } from '@/components/ui/button';
 
 const items = [
   {
     title: "Home",
-    url: "/home",
+    url: "/main/start",
     icon: Home,
   },
   {
     title: "Projects",
-    url: "/projects",
+    url: "/main/projects",
     icon: Files,
   },
   {
     title: "About",
-    url: "/about",
+    url: "/main/about",
     icon: User,
   },
   {
     title: "Tick-Tack-Toe",
-    url: "/tick-tack-toe",
+    url: "/main/tick-tack-toe",
     icon: Grid,
   },
 ]

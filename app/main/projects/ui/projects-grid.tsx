@@ -1,11 +1,3 @@
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
 import { ProjectCard } from "./project-card";
 import { fetchProjects } from "@/app/lib/data";
 
