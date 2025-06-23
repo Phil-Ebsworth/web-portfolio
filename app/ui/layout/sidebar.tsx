@@ -82,7 +82,7 @@ export function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href="/settings">
+                  <Link href="/main/settings">
                     <Settings />
                     <span>Settings</span>
                   </Link>
