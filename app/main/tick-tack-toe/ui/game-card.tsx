@@ -58,8 +58,7 @@ export function GameCard({
                 </CardDescription>
                 <div className="flex flex-col gap-2 mt-4">
                     <Button
-                        onClick={() => router.push(`/tick-tack-toe/game/${gameId}`)}
-                        className=""
+                        onClick={() => router.push(`/main/tick-tack-toe/game/${gameId}`)}
                     >
                         Beitreten
                     </Button>

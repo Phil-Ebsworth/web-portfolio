@@ -47,15 +47,15 @@ export function NewGame({playerName}: { playerName?: string })
             body: JSON.stringify({ playerId: playerId, gameName: gameName, username: username }),
         });
         const { gameId } = await res.json();
-        router.push(`/tick-tack-toe/game/${gameId}`);
+        router.push(`/main/tick-tack-toe/game/${gameId}`);
     };
 
     return (
         <Popover>
             <PopoverTrigger asChild>
-                <Button >
-                    <Plus/>
-                    </Button>
+                <Button>
+                    <Plus />
+                </Button>
             </PopoverTrigger>
             <PopoverContent className="w-80">
                 <form onSubmit={createGame}>
@@ -68,7 +68,6 @@ export function NewGame({playerName}: { playerName?: string })
                                 <Label htmlFor="gameName">Name</Label>
                                 <Input
                                     id="gameName"
-                                    defaultValue=""
                                     className="col-span-2 h-8"
                                     value={gameName}
                                     onChange={(e) => setGameName(e.target.value)}

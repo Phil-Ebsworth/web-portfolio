@@ -90,7 +90,7 @@ export function AppSidebar() {
               </SidebarMenuItem>
               {session?.user ? (
                 <SidebarMenuItem>
-                  <SidebarMenuButton onClick={() => signOut({ callbackUrl: '/' })} asChild>
+                  <SidebarMenuButton onClick={() => signOut()} asChild>
                     <Link href="#">
                       <LogOut />
                       <span>Logout</span>

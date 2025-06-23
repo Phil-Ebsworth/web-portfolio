@@ -30,7 +30,7 @@ export default function Page() {
   // Redirect to login if not authenticated
   useEffect(() => {
     if (!session) {
-      router.push('/login');
+      router.push('/main/login');
     }
   }, [session, router]);
 

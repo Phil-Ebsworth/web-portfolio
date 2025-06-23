@@ -39,7 +39,7 @@ export function LoginForm({
         if (res?.error) {
             setError('Login fehlgeschlagen');
         } else {
-            router.push('/tick-tack-toe');
+            router.push('/main/tick-tack-toe');
         }
     };
 
@@ -53,7 +53,7 @@ export function LoginForm({
         if (res?.error) {
             setError('Gast-Login fehlgeschlagen');
         } else {
-            router.push('/tick-tack-toe');
+            router.push('/main/tick-tack-toe');
         }
     }
 

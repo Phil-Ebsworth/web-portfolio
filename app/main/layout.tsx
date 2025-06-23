@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/app/ui/theme-provider"
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/app/ui/sidebar"
 import { Header } from '@/app/ui/header';
+import { SessionProvider } from 'next-auth/react';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
     return (
@@ -16,7 +17,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                           <SidebarInset>
                             <Header />
                             <main className="flex">
-                              {children}
+                                          {children}
                             </main>
                           </SidebarInset>
                         </SidebarProvider>
