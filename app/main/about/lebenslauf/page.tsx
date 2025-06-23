@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import { TimeLine } from "./ui/timeline";
+import { TimeLine } from "@/app/ui/about/timeline";
 
 export default function Page() {
     return (

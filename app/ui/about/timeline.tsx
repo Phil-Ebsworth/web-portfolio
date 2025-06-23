@@ -2,7 +2,7 @@ import React from "react";
 import events from "@/app/data/events.json";
 import Events from "./events";
 import YearLabels from "./year-labels";
-import { TimelineEvent } from "@/app/lib/definitions";
+import { TimelineEvent } from "@/lib/definitions";
 
 const timeline_job: TimelineEvent[] = events.timeline_job;
 const timeline_uni: TimelineEvent[] = events.timeline_uni;

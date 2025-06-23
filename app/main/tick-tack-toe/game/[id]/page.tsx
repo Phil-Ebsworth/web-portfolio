@@ -1,9 +1,9 @@
 'use client';
 
 import { use, useEffect, useState } from 'react';
-import Board from '@/app/main/tick-tack-toe/ui/board';
+import Board from '@/app/ui/tick-tack-toe/board';
 import { useSession } from 'next-auth/react';
-import { ScoreBoard } from '@/app/main/tick-tack-toe/ui/score-board';
+import { ScoreBoard } from '@/app/ui/tick-tack-toe/score-board';
 
 type GameData = {
   board: string;

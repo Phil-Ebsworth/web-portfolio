@@ -55,6 +55,6 @@ export const authConfig: NextAuthConfig = {
       return session;
     },
   },
-  pages: { signIn: "main/login" },
+  pages: { signIn: "main/auth/login" },
   secret: process.env.NEXTAUTH_SECRET,
 };

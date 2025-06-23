@@ -3,10 +3,10 @@
 import '@/app/ui/global.css';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import * as React from "react"
-import { ThemeProvider } from "@/app/ui/theme-provider"
+import { ThemeProvider } from "@/app/ui/layout/theme-provider"
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/app/ui/sidebar"
-import { Header } from './ui/header';
+import { AppSidebar } from "@/app/ui/layout/sidebar"
+import { Header } from './ui/layout/header';
 import { SessionProvider } from 'next-auth/react';
 
 

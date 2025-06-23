@@ -2,10 +2,10 @@
 
 import { Suspense, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { GameCard } from './ui/game-card';
+import { GameCard } from '@/app/ui/tick-tack-toe/game-card';
 import { useSession } from 'next-auth/react';
-import { NewGame } from './ui/new-game';
-import { GamesGridSkeleton, ProjectsGridSkeleton } from '@/app/ui/skeletons';
+import { NewGame } from '../../ui/tick-tack-toe/new-game';
+import { GamesGridSkeleton, ProjectsGridSkeleton } from '@/app/ui/layout/skeletons';
 
 type GameMeta = {
   id: string;
@@ -30,7 +30,7 @@ export default function Page() {
   // Redirect to login if not authenticated
   useEffect(() => {
     if (!session) {
-      router.push('/main/login');
+      router.push('/main/auth/login');
     }
   }, [session, router]);
 

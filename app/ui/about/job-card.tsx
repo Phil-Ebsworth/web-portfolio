@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { TimelineEvent } from '@/app/lib/definitions';
+import { TimelineEvent } from '@/lib/definitions';
 import { AtSign, MapPin, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -53,11 +53,15 @@ export default function JobCard({ event, idx, openIdxArrJob, handleToggleIdx }: 
                                 )}
                             </>
                         )}
-                        <Link href={`/main/about/lebenslauf/${event.link}`} passHref>
-                            <Button variant="link" className="p-0 h-auto mt-2">
-                                Read more
-                            </Button>
-                        </Link>
+                        <Button
+                            variant="link"
+                            className="p-0 h-auto mt-2"
+                            onClick={() => {
+                                window.location.href = `/main/about/lebenslauf/${event.link}`;
+                            }}
+                        >
+                            Read more
+                        </Button>
                     </CardContent>
                 )
             }

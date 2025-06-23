@@ -1,10 +1,11 @@
 'use client';
 
-import { ThemeProvider } from "@/app/ui/theme-provider"
+import { ThemeProvider } from "@/app/ui/layout/theme-provider"
 import { SidebarProvider, SidebarTrigger, SidebarInset, useSidebar } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { usePathname } from 'next/navigation';
-import { GithubButton, ModeToggle } from '@/app/ui/icons';
+import { GithubButton, ModeToggle } from '@/app/ui/layout/icons';
+import Structure from "./structure";
 
 export function Header() {
   const pathname = usePathname();
@@ -19,7 +20,7 @@ export function Header() {
                   orientation="vertical"
                   className="mr-2 data-[orientation=vertical]:h-4 bg-gray-400"
                 />
-                <h1 className="text-lg font-semibold">{pathname.slice(1).charAt(0).toUpperCase() + pathname.slice(2)}</h1>
+                <Structure path={pathname} />
               </div>
               <div className="flex items-center gap-4">
               <GithubButton />

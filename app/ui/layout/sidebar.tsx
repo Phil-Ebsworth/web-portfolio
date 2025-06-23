@@ -100,7 +100,7 @@ export function AppSidebar() {
               ) : (
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
-                    <Link href="/login">
+                    <Link href="/main/auth/login">
                       <LogIn />
                       <span>Login</span>
                     </Link>

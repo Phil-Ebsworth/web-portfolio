@@ -1,6 +1,6 @@
 import { ProjectCard } from "./project-card";
-import { fetchProjectsFromJson } from "@/app/lib/data";
-import { ProjectsGridSkeleton } from '@/app/ui/skeletons';
+import { fetchProjectsFromJson } from "@/lib/data";
+import { ProjectsGridSkeleton } from '@/app/ui/layout/skeletons';
 import { Suspense } from "react";
 
 export async function ProjectsGrid() {

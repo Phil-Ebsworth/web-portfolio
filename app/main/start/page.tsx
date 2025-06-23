@@ -6,12 +6,12 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { ProjectsGrid } from "@/app/main/projects/ui/projects-grid";
+import { ProjectsGrid } from "@/app/ui/projects/projects-grid";
 
 
 export default function Page() {
   return (
-    <div >
+    <div suppressHydrationWarning>
         <Card className="border-none">
         <CardHeader>
           <CardTitle>Philip-Daniel Ebsworth</CardTitle>

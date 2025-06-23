@@ -1,6 +1,6 @@
 import JobCard from "./job-card";
 import React from "react";
-import { TimelineEvent } from "@/app/lib/definitions";
+import { TimelineEvent } from "@/lib/definitions";
 
 export default function Events({ timeline_jobs, openIdxArrJob, handleToggleIdxJob, position }: { timeline_jobs: TimelineEvent[], openIdxArrJob: boolean[], handleToggleIdxJob: (idx: number) => void, position: string }) {
     return (

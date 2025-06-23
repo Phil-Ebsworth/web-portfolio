@@ -14,7 +14,7 @@ interface ProjectCardProps {
     description: string;
     content: string;
     link: string;
-    md_link?: string;
+    md_link: string;
 }
 
 export function ProjectCard({

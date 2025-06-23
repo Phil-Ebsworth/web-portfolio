@@ -1,6 +1,5 @@
 'use client';
 
-import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -12,14 +11,13 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Separator } from "@/components/ui/separator";
+import { signIn } from "next-auth/react";
 
-export function LoginForm({
-    className,
-    ...props
+export function RegisterForm({
+  className,
+  ...props
 }: React.ComponentProps<"div">) {
     const router = useRouter();
     const [username, setUsername] = useState('');
@@ -30,40 +28,32 @@ export function LoginForm({
         e.preventDefault();
         setError('');
 
-        const res = await signIn('credentials', {
-            username,
-            password,
-            redirect: false,
-        });
+        const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
 
-        if (res?.error) {
-            setError('Login fehlgeschlagen');
-        } else {
-            router.push('/main/tick-tack-toe');
-        }
-    };
-
-    const handleGuestLogin = async () => {
-        const res = await signIn('credentials', {
-            username: 'Gast',
-            password: 'Gast',
-            redirect: false,
-        });
-
-        if (res?.error) {
-            setError('Gast-Login fehlgeschlagen');
-        } else {
-            router.push('/main/tick-tack-toe');
-        }
-    }
+    if (!res.ok) {
+      setError('Registration failed');
+    } else {
+    signIn('credentials', {
+        username,
+        password,
+        redirect: false,
+    }).then((res) => {
+      router.push('/main/tick-tack-toe');
+    });
+  };
+}
 
     return (
         <div className="flex flex-col gap-6">
             <Card>
                 <CardHeader>
-                    <CardTitle>Login to your account</CardTitle>
+                    <CardTitle>Register an account</CardTitle>
                     <CardDescription>
-                        Enter your Username below to login to your account
+                        Enter a Username below to register a new account
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -83,12 +73,6 @@ export function LoginForm({
                             <div className="grid gap-3">
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
-                                    <a
-                                        href="#"
-                                        className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                                    >
-                                        Forgot your password?
-                                    </a>
                                 </div>
                                 <Input id="password"
                                     type="password"
@@ -101,29 +85,15 @@ export function LoginForm({
                             </div>
                             <div className="flex flex-col gap-3">
                                 <Button type="submit" className="w-full">
-                                    Login
+                                    Register
                                 </Button>
                             </div>
                         </div>
                         <div className="mt-4 text-center text-sm">
-                            Don&apos;t have an account?{" "}
-                            <a href="/register" className="underline underline-offset-4">
-                                Sign up
+                            You have an account?{" "}
+                            <a href="/main/auth/login" className="underline underline-offset-4">
+                                Sign in
                             </a>
-                        </div>
-                        <Separator
-                            orientation="horizontal"
-                            className="mt-4 bg-gray-400"
-                        />
-                        <div className="flex justify-center mt-4">
-                            <span className="text-center">
-                                oder
-                            </span>
-                        </div>
-                        <div className="mt-4">
-                            <Button className="w-full" onClick={handleGuestLogin}>
-                                Als Gast spielen
-                            </Button>
                         </div>
                     </form>
                 </CardContent>
