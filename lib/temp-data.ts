@@ -1,4 +1,3 @@
-// data for the projects page
 
 const projects = [
   {

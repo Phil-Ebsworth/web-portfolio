@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import postgres from 'postgres';
-import { projects } from '../../lib/temp-data';
+import { projects } from '@/lib/temp-data';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 

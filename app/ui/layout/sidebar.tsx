@@ -14,7 +14,6 @@ import {
   SidebarGroupLabel,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuAction
 } from '@/components/ui/sidebar';
 import { usePathname } from "next/navigation"
 import Link from 'next/link';
