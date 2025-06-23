@@ -18,8 +18,8 @@
                 "Organisation von Schichten",
                 "Lagerverwaltung"
             ],
-            "link": "about/events/barchef.md"
-
+            "link": "barchef.md",
+            "type": "job"
         },
         {
             "duration": 5,
@@ -39,7 +39,8 @@
                 "Organisation von Schichten",
                 "Lagerverwaltung"
             ],
-            "link": "about/events/sommelier.md"
+            "link": "sommelier.md",
+            "type": "job"
         }
     ],
     "timeline_uni": [
@@ -55,7 +56,8 @@
             "description": "Im Bachelorstudium Medieninformatik an der Universität Tübingen habe ich fundierte Kenntnisse in Softwareentwicklung, Webtechnologien und Medienproduktion erworben. Durch Projekte mit Python, JavaScript, TypeScript, React und Next.js konnte ich meine technischen und analytischen Fähigkeiten praxisnah ausbauen. Ein Schwerpunkt lag auf der Gestaltung von User Interfaces und der Entwicklung datenbankgestützter Webanwendungen.",
             "tasks": [
             ],
-            "link": "about/events/medieninformatik.md"
+            "link": "medieninformatik.md",
+            "type": "education"
         },
         {
             "duration": 2,
@@ -69,7 +71,8 @@
             "description": "Während meiner Ausbildung zum Sommelier im Weinhaus Beck in Tübingen habe ich umfassende Kenntnisse in Weinberatung, Verkauf und Pflege erworben. Zu meinen Aufgaben gehörten die Auswahl und Präsentation hochwertiger Weine, Durchführung von Verkostungen sowie Planung und Organisation von Veranstaltungen. Zudem habe ich Teammitglieder geschult und Kunden individuell beraten, um exzellenten Service und hohe Kundenzufriedenheit zu gewährleisten.",
             "tasks": [
             ],
-            "link": "about/events/sommelier_ausbildung.md"
+            "link": "sommelier_ausbildung.md",
+            "type": "education"
         },
         {
             "duration": 3,
@@ -83,7 +86,8 @@
             "description": "Im Philosophiestudium an der Universität Tübingen habe ich mich mit Ethik, Erkenntnistheorie und Metaphysik beschäftigt. Dabei habe ich analytisches Denken, wissenschaftliches Schreiben und die Fähigkeit zur strukturierten Argumentation entwickelt.",
             "tasks": [
             ],
-            "link": "about/events/philosophie.md"
+            "link": "philosophie.md",
+            "type": "education"
         }
     ]
 }

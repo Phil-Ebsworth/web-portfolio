@@ -1,32 +1,56 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+'use client';
 
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
-export default function Page() {
+export default function Home() {
   return (
-        <Card className="border-none">
-        <CardHeader>
-          <CardTitle>Philip-Daniel Ebsworth</CardTitle>
-          <CardDescription></CardDescription>
-        </CardHeader>
-        <CardContent className="flex items-center justify-between">
-          <p className="flex-1 text-center">
-            Kreativer Full Stack Entwickler mit Fokus auf moderne Webtechnologien, Performance und Design. 
-            Begeistert von TypeScript, React und Next.js, bringe ich innovative Ideen von der Konzeption bis zum Deployment. 
-            Mit einem Auge fürs Detail und einer Leidenschaft für sauberen Code entwickle ich skalierbare, benutzerfreundliche Lösungen.
-          </p>
-          <div className="flex items-center space-x-4 w-1/5" />
-          <img
-            src="/profile.png"
-            alt="Profile"
-            className="w-1/3 rounded-full object-cover"
-          />
-        </CardContent>
-      </Card>
+    <main className="relative h-screen w-full overflow-hidden text-white">
+      {/* Video-Hintergrund */}
+      <video
+        autoPlay
+        muted
+        loop
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          className="text-4xl md:text-6xl font-extrabold tracking-tight"
+        >
+          Willkommen bei <span className="text-primary">NextVision</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="mt-4 max-w-xl text-lg md:text-xl text-gray-300"
+        >
+          Moderne Webentwicklung mit Fokus auf Ästhetik, Performance und Kreativität.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="mt-8"
+        >
+          <Button size="lg" className="text-lg">
+            Projekt starten
+          </Button>
+        </motion.div>
+      </div>
+    </main>
   );
 }

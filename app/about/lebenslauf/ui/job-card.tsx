@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 
 export default function JobCard({ event, idx, openIdxArrJob, handleToggleIdx }: { event: TimelineEvent, idx: number, openIdxArrJob: boolean[], handleToggleIdx: (idx: number) => void }) {
     return (
-        <Card className=" max-w-md mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+        <Card className=" mb-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
             <CardHeader onClick={() => handleToggleIdx(idx)} className="cursor-pointer">
                 <h2 className="text-lg font-semibold text-center">{event.title}</h2>
                 <div className="flex flex-row  items-center mt-1 gap-4 text-xs">
@@ -41,15 +41,19 @@ export default function JobCard({ event, idx, openIdxArrJob, handleToggleIdx }: 
                         <p className="text-left mt-2 mb-4">
                             {event.description}
                         </p>
-                        <h2 className="underline">Aufgaben:</h2>
-                        {event.tasks && event.tasks.length > 0 && (
-                            <ul className="list-disc list-inside mt-2">
-                                {event.tasks.map((task: string, i: number) => (
-                                    <li key={i}>{task}</li>
-                                ))}
-                            </ul>
+                        {event.type === "job" && (
+                            <>
+                                <h2 className="underline">Aufgaben:</h2>
+                                {event.tasks && event.tasks.length > 0 && (
+                                    <ul className="list-disc list-inside mt-2">
+                                        {event.tasks.map((task: string, i: number) => (
+                                            <li key={i}>{task}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </>
                         )}
-                        <Link href={`${event.link}`} passHref>
+                        <Link href={`/about/lebenslauf/events/${event.link}`} passHref>
                             <Button variant="link" className="p-0 h-auto mt-2">
                                 Read more
                             </Button>

@@ -23,4 +23,5 @@ export type TimelineEvent = {
     description: string;
     tasks: string[];
     link: string;
+    type: string; // "job" | "education"
 };
