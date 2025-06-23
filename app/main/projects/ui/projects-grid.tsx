@@ -16,6 +16,7 @@ export async function ProjectsGrid() {
                     description={project.description}
                     content={project.content}
                     link={project.link}
+                    md_link={project.md_link}
                 />
             ))}
         </div>

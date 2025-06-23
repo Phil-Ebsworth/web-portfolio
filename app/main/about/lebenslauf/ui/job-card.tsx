@@ -53,7 +53,7 @@ export default function JobCard({ event, idx, openIdxArrJob, handleToggleIdx }: 
                                 )}
                             </>
                         )}
-                        <Link href={`/about/lebenslauf/events/${event.link}`} passHref>
+                        <Link href={`/main/about/lebenslauf/${event.link}`} passHref>
                             <Button variant="link" className="p-0 h-auto mt-2">
                                 Read more
                             </Button>

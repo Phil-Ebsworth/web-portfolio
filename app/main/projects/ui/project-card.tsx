@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
@@ -13,6 +14,7 @@ interface ProjectCardProps {
     description: string;
     content: string;
     link: string;
+    md_link?: string;
 }
 
 export function ProjectCard({
@@ -21,6 +23,7 @@ export function ProjectCard({
     description,
     content,
     link,
+    md_link,
     ...props
 }: ProjectCardProps & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>) {
     return (
@@ -29,17 +32,22 @@ export function ProjectCard({
             {...props}
         >
             <Link href={link} target="_blank" rel="noopener noreferrer">
-            <CardHeader>
-            <img
-            src={img.toString()}
-            alt={img.toString()}
-            className="rounded-xl h-48"
-            />
-            </CardHeader>
-            <CardContent>
-            <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
-            </CardContent>
+                <CardHeader>
+                    <img
+                        src={img.toString()}
+                        alt={img.toString()}
+                        className="rounded-xl h-48"
+                    />
+                </CardHeader>
+                <CardContent>
+                    <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+                    <CardDescription>{description}</CardDescription>
+                    <Link href={`/main/projects/${md_link}`} passHref>
+                        <Button variant="link" className="p-0 h-auto mt-2">
+                            Read more
+                        </Button>
+                    </Link>
+                </CardContent>
             </Link>
         </Card>
     )

@@ -5,6 +5,7 @@ export type Project = {
     content: string;
     image_url: string;
     link: string;
+    md_link: string;
 };
 
 export type User = {
