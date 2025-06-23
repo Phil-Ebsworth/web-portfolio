@@ -9,7 +9,7 @@ export default function Events({ timeline_jobs, openIdxArrJob, handleToggleIdxJo
                     {timeline_jobs.map((item, idx) => (
                         <div
                             key={idx}
-                            className="w-3 bg-green-200 mb-1 rounded-lg"
+                            className="w-3 bg-white mb-1 rounded-lg"
                             style={{ height: `${item.duration * 10}%` }}
                         ></div>
                     ))}
@@ -32,7 +32,7 @@ export default function Events({ timeline_jobs, openIdxArrJob, handleToggleIdxJo
                     {timeline_jobs.map((item, idx) => (
                         <div
                             key={idx}
-                            className="w-3 bg-blue-200 mb-1 rounded-lg"
+                            className="w-3 bg-white mb-1 rounded-lg"
                             style={{ height: `${item.duration * 10}%` }}
                         ></div>
                     ))}
