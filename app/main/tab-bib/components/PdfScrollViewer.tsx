@@ -17,7 +17,8 @@ import {
     MenubarSeparator,
 } from '@/components/ui/menubar';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+
 
 export default function PdfScrollViewer({ file }: { file: string }) {
     const containerRef = useRef<HTMLDivElement>(null);
