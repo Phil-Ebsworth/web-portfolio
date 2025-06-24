@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import postgres from 'postgres';
 
+// Sichere Verbindung zur PostgreSQL-Datenbank (z. B. Neon)
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { slug: string } }
 ) {
-  const slug = decodeURIComponent(params.slug);
+  const param = await params;
+  const slug = param.slug;
 
   try {
     const result = await sql`
@@ -15,12 +17,12 @@ export async function GET(
     `;
 
     if (result.length === 0) {
-      return NextResponse.json({ error: 'Not found' }, { status: 404 });
+      return NextResponse.json({ error: 'Tab not found' }, { status: 404 });
     }
 
-    return NextResponse.json(result[0]);
+    return NextResponse.json(result[0]); // Einzelnes Tab zurückgeben
   } catch (error) {
-    console.error(error);
+    console.error('[API ERROR]:', error);
     return NextResponse.json({ error: 'Server error' }, { status: 500 });
   }
 }
