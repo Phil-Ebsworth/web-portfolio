@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Home, Settings, Files, User, Grid, LogIn, LogOut } from "lucide-react"
+import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music } from "lucide-react"
 
 import clsx from 'clsx';
 import {
@@ -31,14 +31,19 @@ const items = [
     icon: Files,
   },
   {
-    title: "About",
-    url: "/main/about",
-    icon: User,
-  },
-  {
     title: "Tick-Tack-Toe",
     url: "/main/tick-tack-toe",
     icon: Grid,
+  },
+  {
+    title: "Tab-Bibliothek",
+    url: "/main/tab-bib",
+    icon: Music,
+  },
+  {
+    title: "About",
+    url: "/main/about",
+    icon: User,
   },
 ]
 

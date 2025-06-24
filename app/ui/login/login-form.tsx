@@ -52,7 +52,7 @@ export function LoginForm({
         if (res?.error) {
             setError('Gast-Login fehlgeschlagen');
         } else {
-            router.push('/main/tick-tack-toe');
+            router.back();
         }
     }
 
