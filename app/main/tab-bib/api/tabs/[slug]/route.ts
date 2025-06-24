@@ -1,10 +1,12 @@
+import { NextRequest, NextResponse } from 'next/server';
 import postgres from 'postgres';
-import { NextResponse } from 'next/server';
-import { NextRequest } from 'next/server';
 
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
-export async function GET(request: NextRequest, { params }: { params: { slug: string } }) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { slug: string } }
+) {
   const slug = decodeURIComponent(params.slug);
 
   try {
