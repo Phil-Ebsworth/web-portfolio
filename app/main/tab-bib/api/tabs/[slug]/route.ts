@@ -5,10 +5,10 @@ import postgres from 'postgres';
 const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
 
 export async function GET(
-  _request: NextRequest,
-  { params }: { params: { slug: string } }
+  request: NextRequest,
+  context: { params: { slug: string } }
 ) {
-  const param = await params;
+  const param = await context.params;
   const slug = param.slug;
 
   try {
