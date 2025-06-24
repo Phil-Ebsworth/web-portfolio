@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     "lib/temp-data.ts",
     "scripts/seed.js"
-  ],
+, "rename-pdfs.js"  ],
   "exclude": ["node_modules"]
 }
