@@ -205,7 +205,7 @@ export default function PdfScrollViewer({ file }: { file: string }) {
                 ref={containerRef}
                 className="h-[90vh] overflow-y-auto border rounded p-2 flex justify-center"
             >
-                <Document file={file} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+                <Document file="/test.pdf" onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
                     <div className="flex flex-col items-center w-full">
                         {Array.from({ length: numPages }, (_, i) => (
                             <Page
