@@ -8,6 +8,7 @@ export async function GET() {
         const result = await sql`
             SELECT id, title, url, description, slug, category, created_at, prompt
             FROM images
+            ORDER BY random()
             `;
         return NextResponse.json(result);
     } catch (err) {
