@@ -18,6 +18,15 @@
         "md_link": "bildgalerie.md"
     },
     {
+        "id": "a1b2c3d4-e5f6-7g8h-9i10-jk11lm12no13",
+        "title": "Portfolio-Website",
+        "description": "Meine persönliche Webpräsenz",
+        "content": "Diese Website dient als digitale Visitenkarte, Projektplattform und Spielwiese für moderne Webentwicklung. Sie wurde mit Next.js, TypeScript und Tailwind CSS aufgebaut und zeigt aktuelle Projekte, Gitarren-Tabs, KI-generierte Bilder und persönliche Interessen. Die Seite nutzt serverseitiges Rendering, eine PostgreSQL-Datenbank und dynamisches Routing mit Slugs. Fokus liegt auf Performance, Responsiveness und einem klaren, eleganten UI-Design.",
+        "image_url": "/portfolio.PNG",
+        "link": "https://github.com/Phil-Ebsworth/web-portfolio",
+        "md_link": "portfolio.md"
+    },
+    {
         "id": "e5f4a3b2-6d7e-4f8f-9a1b-0c1d2e3f4g5h",
         "title": "Tab Library",
         "description": "Eine interaktive Bibliothek für Gitarren-Tabs.",
