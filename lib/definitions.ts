@@ -26,3 +26,13 @@ export type TimelineEvent = {
     link: string;
     type: string; // "job" | "education"
 };
+
+export type Image = {
+  url: string;
+  title: string;
+  slug: string;
+  category: string[];
+  prompt: string;
+  created_at: string;
+  description: string;
+};
