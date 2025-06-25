@@ -84,14 +84,14 @@ export function AppSidebar() {
           <SidebarGroupLabel>Settings</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              <SidebarMenuItem>
+              {/* <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href="/main/settings">
                     <Settings />
                     <span>Settings</span>
                   </Link>
                 </SidebarMenuButton>
-              </SidebarMenuItem>
+              </SidebarMenuItem> */}
               {session?.user ? (
                 <SidebarMenuItem>
                   <SidebarMenuButton onClick={() => signOut()} asChild>

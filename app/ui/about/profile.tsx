@@ -1,4 +1,6 @@
 import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Book, Brain, Gamepad, Home, Mail, File, Languages, Globe } from "lucide-react";
 
 export default function Profile() {
     return (
@@ -20,26 +22,31 @@ export default function Profile() {
                 {/* Steckbrief-Bereich */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-10 text-sm mt-8 leading-relaxed">
                     <div>
-                        <h3 className="font-semibold mb-1">📍 Zuhause</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Home /> Zuhause</h3>
+                        <Separator className="my-2" />
                         <p>Tübingen – zwischen Uni, Altstadt und guter Laune</p>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">📧 Erreichbar unter</h3>
-                        <p><a href="mailto:Philebsworth94@gmail.com" className="underline text-blue-600">Philebsworth94@gmail.com</a></p>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Mail /> Erreichbar unter</h3>
+                        <Separator className="my-2" />
+                        <p><a href="mailto:Philebsworth94@gmail.com" className="underline ">Philebsworth94@gmail.com</a></p>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🧠 Skills & Spielwiese</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Brain /> Skills & Spielwiese</h3>
+                        <Separator className="my-2" />
                         <p>TypeScript, Rust, React, Next.js – wenn’s compilet, wird’s deployed</p>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🧪 Projekte</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><File /> Projekte</h3>
+                        <Separator className="my-2" />
                         <ul className="list-disc list-inside">
                             <li>Polarity-Doku-Automatisierer (Rust)</li>
                             <li>Mein Portfolio (Next.js + Tailwind)</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🎓 Lebenslange Lernerei</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Book /> Lebenslange Lernerei</h3>
+                        <Separator className="my-2" />
                         <ul className="list-disc list-inside">
                             <li>Medieninformatik (B.Sc.)</li>
                             <li>Philosophie (B.A.) – Fragen stellen kann ich auch</li>
@@ -47,25 +54,28 @@ export default function Profile() {
                         </ul>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🗣️ Sprachen</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Languages /> Sprachen</h3>
+                        <Separator className="my-2" />
                         <p>Deutsch, Englisch und ein bisschen TypeScript mit Akzent</p>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🚀 Dev-Philosophie</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Brain /> Dev-Philosophie</h3>
+                        <Separator className="my-2" />
                         <p>
                             "Ich mag meine Software wie meinen Wein: gut strukturiert, mit Charakter
                             und ohne Memory Leaks."
                         </p>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🤹‍♂️ Was mich sonst begeistert</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Gamepad /> Was mich sonst begeistert</h3>
+                        <Separator className="my-2" />
                         <p>Web & Game Dev, KI, Gitarre, Kochen, Philosophie, Whisky – je nach Tageszeit</p>
                     </div>
                     <div>
-                        <h3 className="font-semibold mb-1">🌐 Links</h3>
+                        <h3 className="font-semibold mb-1 flex flex-row gap-2"><Globe /> Links</h3>
+                        <Separator className="my-2" />
                         <ul className="list-disc list-inside">
-                            <li><a href="https://philip-danielebsworth.com" target="_blank" className="underline text-blue-600">Website</a></li>
-                            <li><a href="https://github.com/Phil-Ebsworth" target="_blank" className="underline text-blue-600">GitHub</a></li>
+                            <li><a href="https://github.com/Phil-Ebsworth" target="_blank" className="underline">GitHub</a></li>
                         </ul>
                     </div>
                 </div>

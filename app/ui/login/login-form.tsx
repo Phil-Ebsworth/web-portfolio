@@ -36,7 +36,7 @@ export function LoginForm({
         });
 
         if (res?.error) {
-            setError('Login fehlgeschlagen');
+            setError('Login fehlgeschlagen - Überprüfen Sie Ihre Anmeldedaten');
         } else {
             router.push('/main/tick-tack-toe');
         }
@@ -66,6 +66,11 @@ export function LoginForm({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
+                    {error && (
+                        <div className="mb-4 text-red-500 text-center">
+                            {error}
+                        </div>
+                    )}
                     <form onSubmit={handleSubmit}>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-3">

@@ -16,5 +16,3 @@ Dies ist ein einfaches Tic-Tac-Toe-Spiel, das mit React entwickelt wurde. Es bie
 **Ergebnisse:**
 - Ein einfaches, aber funktionales Tic-Tac-Toe-Spiel, das sowohl lehrreich als auch unterhaltsam ist.
 - Effiziente Verwendung von React für die Spiellogik und das Rendering.
-
-![Tick-Tack-Toe](tick-tack-toe.PNG)

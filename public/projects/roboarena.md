@@ -17,4 +17,3 @@ RoboArena ist ein kompakter, top-down Roguelike, der in Zusammenarbeit mit Freun
 - Ein actiongeladenes, pixel-art Roguelike, das schnelle, abwechslungsreiche Sessions bietet.
 - Gute Teamarbeit und Spielbalance, um das „noch eine Runde“-Gefühl zu erzeugen.
 
-![Roboarena](roboarena.PNG)

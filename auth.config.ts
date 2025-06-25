@@ -16,29 +16,44 @@ export const authConfig: NextAuthConfig = {
         password: { label: "Passwort", type: "password" },
       },
       async authorize(credentials) {
+        // Input validation with clear error messages
         const parsed = z
           .object({
-            username: z.string().min(1),
-            password: z.string().min(1),
+            username: z.string().min(1, "Benutzername darf nicht leer sein."),
+            password: z.string().min(1, "Passwort darf nicht leer sein."),
           })
           .safeParse(credentials);
-        if (!parsed.success) return null;
+
+        if (!parsed.success) {
+          throw new Error("Ungültige Eingabedaten. Bitte fülle alle Felder aus.");
+        }
+
         const { username, password } = parsed.data;
 
+        // Fetch user from the database
         const users = await sql`
           SELECT * FROM users WHERE username = ${username}
         `;
         const user = users[0];
-        if (!user) return null;
 
+        if (!user) {
+          throw new Error("Benutzer existiert nicht.");
+        }
+
+        // Validate password
         const valid = await bcrypt.compare(password, user.password);
-        if (!valid) return null;
+        if (!valid) {
+          throw new Error("Falsches Passwort.");
+        }
 
+        // Successful login
         return { id: user.id, name: user.username };
       },
     }),
   ],
+
   session: { strategy: "jwt" },
+
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -47,6 +62,7 @@ export const authConfig: NextAuthConfig = {
       }
       return token;
     },
+
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
@@ -55,6 +71,10 @@ export const authConfig: NextAuthConfig = {
       return session;
     },
   },
-  pages: { signIn: "main/auth/login" },
+
+  pages: {
+    signIn: "/main/auth/login", // Ensure this has a leading slash
+  },
+
   secret: process.env.NEXTAUTH_SECRET,
 };

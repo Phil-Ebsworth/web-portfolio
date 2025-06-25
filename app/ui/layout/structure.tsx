@@ -23,7 +23,7 @@ export default function Structure({ path }: { path: string }) {
                                 <BreadcrumbLink asChild>
                                     <Link
                                         href={path.split('/').slice(0, index + 1).join('/') || '/'}
-                                        className={`text-gray-400 ${pathName === (path.split('/').slice(0, index + 1).join('/') || '/') ? 'text-white' : 'hover:text-gray-200'}`}
+                                        className={` ${pathName === (path.split('/').slice(0, index + 1).join('/') || '/') ? 'text-foreground' : 'hover:secondary-foreground'}`}
                                     >
                                         {(item || 'Home').charAt(0).toUpperCase() + (item || 'Home').slice(1)}
                                     </Link>

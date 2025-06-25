@@ -22,4 +22,3 @@ Die Trennung von Inhalt und Präsentation (über Askama-Templates und eine zentr
 - Automatisch generierte HTML-Dokumentation für jedes Polarity-Modul.
 - Gut strukturierte, wartbare und leicht anpassbare Dokumente, die die Polarity-Syntax und -Semantik veranschaulichen.
 
-![Polarity Documentation](documentation.PNG)

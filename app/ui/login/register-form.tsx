@@ -57,13 +57,18 @@ export function RegisterForm({
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
+                    {error && (
+                        <div className="mb-4 text-red-500 text-center">
+                            {error}
+                        </div>
+                    )}
                     <form onSubmit={handleSubmit}>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-3">
-                                <Label htmlFor="email">Username</Label>
+                                <Label htmlFor="username">Username</Label>
                                 <Input
-                                    id="Benutzername"
-                                    type="Text"
+                                    id="username"
+                                    type="text"
                                     placeholder="Benutzername"
                                     required
                                     value={username}
@@ -74,14 +79,17 @@ export function RegisterForm({
                                 <div className="flex items-center">
                                     <Label htmlFor="password">Password</Label>
                                 </div>
-                                <Input id="password"
+                                <Input
+                                    id="password"
                                     type="password"
                                     required
                                     placeholder="Password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
-
+                                {password && password.length < 6 && (
+                                    <span className="text-red-500 text-sm">Password must be at least 6 characters</span>
+                                )}
                             </div>
                             <div className="flex flex-col gap-3">
                                 <Button type="submit" className="w-full">

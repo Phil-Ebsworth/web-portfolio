@@ -1,56 +1,59 @@
-// lib/auth.ts
-import Credentials from "next-auth/providers/credentials";
-import { z } from "zod";
+// auth.config.ts
+import NextAuth, { NextAuthConfig } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import postgres from "postgres";
-import type { NextAuthConfig } from "next-auth";
+import { z } from "zod";
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
-
-type User = {
-  id: string;
-  username: string;
-  password: string;
-};
-
-async function getUser(username: string): Promise<User | null> {
-  const users = await sql<User[]>`
-    SELECT * FROM users WHERE username = ${username}
-  `;
-  return users[0] ?? null;
-}
+const sql = postgres(process.env.POSTGRES_URL!, { ssl: "require" });
 
 export const authConfig: NextAuthConfig = {
   providers: [
-    Credentials({
+    CredentialsProvider({
+      name: "credentials",
       credentials: {
-        username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
+        username: { label: "Benutzername", type: "text" },
+        password: { label: "Passwort", type: "password" },
       },
       async authorize(credentials) {
+        // Input validation with clear error messages
         const parsed = z
           .object({
-            username: z.string().min(1),
-            password: z.string().min(1),
+            username: z.string().min(1, "Benutzername darf nicht leer sein."),
+            password: z.string().min(1, "Passwort darf nicht leer sein."),
           })
           .safeParse(credentials);
 
-        if (!parsed.success) return null;
+        if (!parsed.success) {
+          throw new Error("Ungültige Eingabedaten. Bitte fülle alle Felder aus.");
+        }
 
         const { username, password } = parsed.data;
-        const user = await getUser(username);
-        if (!user) return null;
 
+        // Fetch user from the database
+        const users = await sql`
+          SELECT * FROM users WHERE username = ${username}
+        `;
+        const user = users[0];
+
+        if (!user) {
+          throw new Error("Benutzer existiert nicht.");
+        }
+
+        // Validate password
         const valid = await bcrypt.compare(password, user.password);
-        if (!valid) return null;
+        if (!valid) {
+          throw new Error("Falsches Passwort.");
+        }
 
+        // Successful login
         return { id: user.id, name: user.username };
       },
     }),
   ],
-  session: {
-    strategy: "jwt",
-  },
+
+  session: { strategy: "jwt" },
+
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -59,6 +62,7 @@ export const authConfig: NextAuthConfig = {
       }
       return token;
     },
+
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
@@ -67,8 +71,10 @@ export const authConfig: NextAuthConfig = {
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+
   pages: {
-    signIn: "main/auth/login",
+    signIn: "/main/auth/login", // Ensure this has a leading slash
   },
+
+  secret: process.env.NEXTAUTH_SECRET,
 };
