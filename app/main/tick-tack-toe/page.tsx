@@ -69,7 +69,7 @@ export default function Page() {
     });
     const result = await res.json();
     if (res.ok) {
-      setGames(games.filter((g) => g.id !== gameId)); // Lokale Aktualisierung
+      setGames(games.filter((g) => g.id !== gameId));
     } else {
       alert('Fehler: ' + result.error);
     }

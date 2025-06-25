@@ -13,7 +13,7 @@ export function Header() {
   return (
     <header className="flex sticky top-0 bg-background py-1.5 items-center px-2 md:px-2 gap-2">
       <SidebarInset>
-            <header className="flex sticky top-0 bg-background py-1.5 items-center px-2 md:px-2 gap-2">
+            <header className="flex top-0 bg-background py-1.5 items-center px-2 md:px-2 gap-2">
               <div className="flex gap-4 items-center flex-1">
                 <SidebarTrigger className="scale-150" />
                 <Separator

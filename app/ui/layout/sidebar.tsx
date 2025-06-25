@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music } from "lucide-react"
+import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music, Images } from "lucide-react"
 
 import clsx from 'clsx';
 import {
@@ -39,6 +39,11 @@ const items = [
     title: "Tab-Bibliothek",
     url: "/main/tab-bib",
     icon: Music,
+  },
+  {
+    title: "Showcase",
+    url: "/main/showcase",
+    icon: Images,
   },
   {
     title: "About",
