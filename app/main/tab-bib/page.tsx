@@ -89,7 +89,7 @@ export default function TabListPage() {
             className="block p-4 border rounded hover:shadow transition"
           >
             <h2 className="text-lg font-semibold">{tab.title}</h2>
-            <p className="text-sm text-gray-600">{tab.artist}</p>
+            <p className="text-sm">{tab.artist}</p>
           </Link>
         ))}
       </div>

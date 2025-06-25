@@ -113,7 +113,7 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
   if (!game || !playerId) return <p className="p-6">Lade Spiel ...</p>;
 
   return (
-    <div className="flex min-h-svh w-full items-center justify-center  md:p-10">
+    <div className="flex w-full items-center justify-center">
       <div className="w-full max-w-sm">
         <h1 className="text-3xl font-bold text-center">{game.game_name}</h1>
         <ScoreBoard player_x_name={game.player_x_name} player_o_name={game.player_o_name} score_x={game.player_x_score} score_o={game.player_o_score}/>

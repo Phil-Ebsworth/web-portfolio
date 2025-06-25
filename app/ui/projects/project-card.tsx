@@ -1,54 +1,59 @@
 import { Button } from "@/components/ui/button";
 import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
 
 interface ProjectCardProps {
-    img: string;
-    title: string;
-    description: string;
-    content: string;
-    link: string;
-    md_link: string;
+  img: string;
+  title: string;
+  description: string;
+  content: string;
+  link: string;
+  md_link: string;
 }
 
 export function ProjectCard({
-    img,
-    title,
-    description,
-    content,
-    link,
-    md_link,
-    ...props
-}: ProjectCardProps & React.HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>) {
-    return (
-        <Card
-            className="rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 hover:border hover:border-white border-0"
-            {...props}
-        >
-            <Link href={link} target="_blank" rel="noopener noreferrer">
-                <CardHeader>
-                    <img
-                        src={img.toString()}
-                        alt={img.toString()}
-                        className="rounded-xl h-48"
-                    />
-                </CardHeader>
-                <CardContent>
-                    <CardTitle className="text-xl font-semibold">{title}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
-                    <Link href={`/main/projects/${md_link}`} passHref>
-                        <Button variant="link" className="p-0 h-auto mt-2">
-                            Read more
-                        </Button>
-                    </Link>
-                </CardContent>
-            </Link>
-        </Card>
-    )
+  img,
+  title,
+  description,
+  content,
+  link,
+  md_link,
+  ...props
+}: ProjectCardProps & React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <Card
+      className="w-full rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:border hover:border-white border border-transparent overflow-hidden"
+      {...props}
+    >
+      <Link href={link} target="_blank" rel="noopener noreferrer">
+        <div className="relative w-full aspect-[16/9]">
+          <img
+            src={img}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+          />
+          <div className="absolute inset-0 transition-all" />
+        </div>
+      </Link>
+
+      <CardContent className="p-6 space-y-3">
+        <CardTitle className="text-2xl font-semibold">{title}</CardTitle>
+        <CardDescription className="text-base text-gray-300">
+          {description}
+        </CardDescription>
+
+        <Link href={`/main/projects/${md_link}`} passHref>
+          <Button variant="link" className="p-0 h-auto">
+            Read more
+          </Button>
+        </Link>
+      </CardContent>
+    </Card>
+  );
 }

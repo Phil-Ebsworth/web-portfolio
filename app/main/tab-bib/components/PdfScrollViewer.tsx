@@ -147,7 +147,7 @@ export default function PdfScrollViewer({ file }: { file: string }) {
                     </MenubarMenu>
                     <MenubarMenu>
                         <MenubarTrigger>
-                            Scroll Menu
+                            <p className="text-lg">Menu</p>
                             <MenubarContent >
                                 <MenubarItem>
                                     Startpoint: {startPoint}

@@ -9,6 +9,24 @@
         "md_link": "polarity.md"
     },
     {
+        "id": "d4e3f2a1-5c6d-4e7e-8f1a-9a0b1c2d3e4f",
+        "title": "Bildgalerie",
+        "description": "Ein visuelles Archiv experimenteller Promptkunst.",
+        "content": "Die Bildgalerie ist eine kuratierte Sammlung fotorealistischer 8K-Bilder, die durch präzise Prompt-Generierung entstanden sind. Sie verbindet Technik mit Ästhetik und zeigt Themen wie Natur-Technik-Symbiosen, abstrakte Wesen und futuristische Landschaften. Die Galerie dient sowohl als kreatives Showcase als auch als Ausgangspunkt für explorative Projekte mit generativer KI.",
+        "image_url": "/galerie.PNG",
+        "link": "/main/showcase",
+        "md_link": "bildgalerie.md"
+    },
+    {
+        "id": "e5f4a3b2-6d7e-4f8f-9a1b-0c1d2e3f4g5h",
+        "title": "Tab Library",
+        "description": "Eine interaktive Bibliothek für Gitarren-Tabs.",
+        "content": "Die Tab Library ist eine benutzerfreundliche Plattform zum Hochladen, Durchsuchen und Verwalten von Gitarren-Tabs. Nutzer können PDFs hinzufügen, Slugs generieren und Tabs nach Künstler oder Titel filtern. Entwickelt mit Next.js, PostgreSQL und NextAuth bietet sie einen schlanken Workflow für das persönliche Tab-Archiv oder kollaborative Nutzung. Perfekt für Musiker, die ihre Sammlung digitalisieren und teilen möchten.",
+        "image_url": "/tab-bib.PNG",
+        "link": "/main/tab-bib",
+        "md_link": "tablibrary.md"
+    },
+    {
         "id": "b2c1f8d3-4e5a-4c6b-9f0e-7c8d9e0f1a2b",
         "title": "Roboarena",
         "description": "A small, top-down roguelike approach.",
@@ -25,6 +43,5 @@
         "image_url": "/tick-tack-toe.PNG",
         "link": "/tick-tack-toe",
         "md_link": "tick-tack-toe.md"
-
     }
 ]
