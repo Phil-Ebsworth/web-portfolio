@@ -4,7 +4,7 @@ import { useParams } from 'next/navigation';
 import { Cocktail } from '@/lib/definitions';
 import { useEffect, useState } from 'react';
 
-export default function CocktailDetailPage({ params }: { params: { slug: string } }) {
+export default function CocktailDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
   const [loading, setLoading] = useState(true);
