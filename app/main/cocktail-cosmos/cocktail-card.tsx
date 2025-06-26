@@ -1,14 +1,13 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
+  CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from '@/components/ui/card';
-import { Cocktail } from '@/lib/definitions';
+} from "@/components/ui/card";
+import { Cocktail } from "@/lib/definitions";
 
 export default function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
   return (
@@ -16,8 +15,8 @@ export default function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
       href={`/main/cocktail-cosmos/${cocktail.slug}`}
       className="block w-full max-w-5xl mx-auto"
     >
-      <Card className="flex flex-row items-center w-full overflow-hidden hover:shadow-xl transition duration-200 cursor-pointer">
-        <div className="w-2/3 p-6">
+      <Card className="flex flex-col md:flex-row items-stretch overflow-hidden hover:shadow-xl transition duration-200 cursor-pointer">
+        <div className="md:w-2/3 p-6">
           <CardHeader className="p-0 mb-4">
             <CardTitle className="text-2xl">{cocktail.name}</CardTitle>
             <CardDescription>{cocktail.description}</CardDescription>
@@ -27,13 +26,13 @@ export default function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
           </CardContent>
         </div>
 
-        <div className="w-1/3 h-full">
+        <div className="md:w-1/3 w-full aspect-square relative">
           <Image
             src={cocktail.image_url}
             alt={cocktail.name}
-            width={400}
-            height={250}
-            className="object-cover w-full h-full"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
         </div>
       </Card>
