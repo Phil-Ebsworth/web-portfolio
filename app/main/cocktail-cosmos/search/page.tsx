@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import CocktailCard from '../cocktail-card';
+import CocktailCard from '../ui/cocktail-card';
 import { Cocktail as CocktailType } from '@/lib/definitions';
 import { Input } from '@/components/ui/input';
 import {
