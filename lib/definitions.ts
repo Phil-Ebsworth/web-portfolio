@@ -36,3 +36,12 @@ export type Image = {
   created_at: string;
   description: string;
 };
+
+export type Cocktail = {
+    name: string;
+    slug: string;
+    description: string;
+    image_url: string;
+    ingredients: string[];
+    instructions: string;
+};

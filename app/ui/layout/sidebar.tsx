@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music, Images } from "lucide-react"
+import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music, Images, Martini } from "lucide-react"
 
 import clsx from 'clsx';
 import {
@@ -44,6 +44,11 @@ const items = [
     title: "Showcase",
     url: "/main/showcase",
     icon: Images,
+  },
+  {
+    title: "Cocktail Cosmos",
+    url: "/main/cocktail-cosmos",
+    icon: Martini,
   },
   {
     title: "About",
