@@ -8,10 +8,10 @@ const slugs = [
   'aperol-spritz',
   'limoncello-tonic',
   'gin-basil-smash-light',
-  'vodka-cranberry',
+  'cherry-smash',
   'tropical-rum-fizz',
   'summer-mule',
-  'cranberry-spritz',
+  'minty-hugo-light',
   'limoncello-spritz',
   'gin-sunset',
 ];
