@@ -9,11 +9,11 @@ const slugs = [
   'campari-orange',
   'limoncello-spritz',
   'limoncello-tonic',
+  'mimosa',
   'tequila-sunrise',
   'gin-sunset',
   'tom-collins',
   'long-island-iced-tea',
-  'mimosa',
 ];
 
 export async function GET() {
