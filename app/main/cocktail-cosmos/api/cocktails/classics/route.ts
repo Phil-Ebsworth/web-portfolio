@@ -4,16 +4,21 @@ import postgres from 'postgres';
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 const slugs = [
-  'aperol-spritz',
-  'hugo',
-  'campari-orange',
-  'limoncello-spritz',
-  'limoncello-tonic',
-  'tequila-sunrise',
-  'gin-sunset',
-  'tom-collins',
-  'long-island-iced-tea',
-  'mimosa',
+  'old-fashioned',
+  'martini',
+  'manhattan',
+  'negroni',
+  'daiquiri',
+  'margarita',
+  'whiskey-sour',
+  'mojito',
+  'cosmopolitan',
+  'mai-tai',
+  'sidecar',
+  'sazerac',
+  'gimlet',
+  'boulevardier',
+  'moscow-mule',
 ];
 
 export async function GET() {
