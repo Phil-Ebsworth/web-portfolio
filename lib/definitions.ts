@@ -45,3 +45,12 @@ export type Cocktail = {
     ingredients: string[];
     instructions: string;
 };
+
+export type Tab = {
+  id: number;
+  title: string;
+  artist: string;
+  tab_data: string;
+  pdf_url?: string;
+  slug: string;
+};

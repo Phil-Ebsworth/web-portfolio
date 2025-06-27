@@ -13,16 +13,7 @@ import {
   PaginationLink,
 } from '@/components/ui/pagination';
 import { TabCard } from './components/tab-card';
-
-/* ----------------------------- Typdefinition ----------------------------- */
-type Tab = {
-  id: number;
-  title: string;
-  artist: string;
-  tab_data: string;
-  pdf_url?: string;
-  slug: string;
-};
+import type { Tab } from '@/lib/definitions';
 
 /* ------------------------------------------------------------------------ */
 export default function TabListPage() {

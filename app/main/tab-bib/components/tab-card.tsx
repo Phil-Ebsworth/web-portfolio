@@ -1,12 +1,5 @@
 import Link from "next/link";
-
-type Tab = {
-  id: number;
-  title: string;
-  artist: string;
-  slug: string;
-  pdf_url: string;
-};
+import { Tab } from "@/lib/definitions";
 
 export function TabCard({ tab }: { tab: Tab }) {
   return (
