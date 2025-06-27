@@ -5,7 +5,7 @@ type Tab = {
   title: string;
   artist: string;
   slug: string;
-  pdf_url?: string;
+  pdf_url: string;
 };
 
 export function TabCard({ tab }: { tab: Tab }) {
@@ -16,13 +16,7 @@ export function TabCard({ tab }: { tab: Tab }) {
     >
       <div className="flex flex-col gap-2">
         <h3 className="text-xl font-semibold group-hover:underline">{tab.title}</h3>
-        <p className="text-sm text-gray-300">{tab.artist}</p>
-
-        {tab.pdf_url && (
-          <p className="text-xs text-blue-400 mt-2 group-hover:underline">
-            PDF verfügbar
-          </p>
-        )}
+        <p className="text-sm">{tab.artist}</p>
       </div>
     </Link>
   );

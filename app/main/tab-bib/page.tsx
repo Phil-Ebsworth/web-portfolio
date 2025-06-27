@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import PdfDropzone from './components/PdfDropzone';
 import { useSession } from 'next-auth/react';
 import { Input } from '@/components/ui/input';
@@ -30,7 +29,7 @@ export default function TabListPage() {
   const [tabs, setTabs] = useState<Tab[]>([]);
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const tabsPerPage = 8;
+  const tabsPerPage = 12;
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
