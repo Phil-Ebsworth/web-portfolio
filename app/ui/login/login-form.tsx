@@ -32,13 +32,14 @@ export function LoginForm({
         const res = await signIn('credentials', {
             username,
             password,
-            redirect: false,
-        });
+            redirect: true,
+            callbackUrl: '/main',
+        }) as { error?: string } | undefined;
 
         if (res?.error) {
             setError('Login fehlgeschlagen - Überprüfen Sie Ihre Anmeldedaten');
         } else {
-            router.push('/main/tick-tack-toe');
+            router.back();
         }
     };
 
@@ -47,11 +48,12 @@ export function LoginForm({
             username: 'Gast',
             password: 'Gast',
             redirect: false,
-        });
+        }) as { error?: string } | undefined;
 
         if (res?.error) {
             setError('Gast-Login fehlgeschlagen');
         } else {
+            
             router.back();
         }
     }
