@@ -36,15 +36,6 @@
         "md_link": "tablibrary.md"
     },
     {
-        "id": "7a4f2b90-9c3d-4e4f-a8e1-0a12b8e4cfc1",
-        "title": "Cocktail-Cosmos",
-        "description": "Eine stilvolle Webanwendung zur Verwaltung und Präsentation von Cocktailrezepten.",
-        "content": "Cocktail-Cosmos ist eine elegante Webanwendung zur Darstellung, Suche und Pflege von Cocktailrezepten. Die Anwendung basiert auf Next.js, nutzt eine PostgreSQL-Datenbank und bietet Features wie Suchfilter, Kategorieauswahl, Detailseiten für Drinks und eine Sommerkarte. Die Rezepte sind mit Bildern, Zutatenlisten und Zubereitungsschritten ausgestattet. Die Datenverwaltung erfolgt über SQL-basierte Einträge für maximale Transparenz.",
-        "image_url": "/cocktail-cosmos.png",
-        "link": "/main/cocktail-cosmos",
-        "md_link": "cocktail-cosmos.md"
-    },
-    {
         "id": "b2c1f8d3-4e5a-4c6b-9f0e-7c8d9e0f1a2b",
         "title": "Roboarena",
         "description": "A small, top-down roguelike approach.",
