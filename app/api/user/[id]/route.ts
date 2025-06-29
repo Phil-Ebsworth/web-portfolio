@@ -30,7 +30,7 @@ export async function GET(
 
 export async function PATCH(
     req: NextRequest,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: { id: string } }
 ) {
     const userId = (await params).id;
     const body = await req.json();
