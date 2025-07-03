@@ -13,15 +13,12 @@ import { Label } from "@/components/ui/label"
 
 import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Separator } from "@/components/ui/separator";
 
 export function LoginForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
-    const { data: session, status } = useSession();
-    const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -57,10 +54,6 @@ export function LoginForm({
             location.reload();
             await new Promise((resolve) => setTimeout(resolve, 1000));
         }
-    }
-    if (status === "authenticated") {
-        router.replace("/main/start");
-        return null;
     }
     return (
         <div className="flex flex-col gap-6">

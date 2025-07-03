@@ -14,6 +14,8 @@ import {
   SidebarGroupLabel,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
+  SidebarHeader,
 } from '@/components/ui/sidebar';
 import {
   Avatar,
@@ -33,6 +35,7 @@ import { usePathname } from "next/navigation"
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import { useEffect } from 'react';
+import { Separator } from '@radix-ui/react-separator';
 
 const items = [
   {
@@ -99,6 +102,14 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" className="group-data-[side=left]:border-r-0">
+      <SidebarHeader>
+          <SidebarMenuButton asChild>
+            <Link href="/" >
+              <Sparkles className="size-4" />
+              <span className="hidden sm:inline">Philip-Daniel Ebsworth</span>
+            </Link>
+          </SidebarMenuButton>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
@@ -126,81 +137,67 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarGroup>
-          <SidebarGroupLabel>Settings</SidebarGroupLabel>
-          <SidebarGroupContent>
+            <SidebarSeparator />
             <SidebarMenu>
               {session?.user ? (
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <Link href="/main/auth/profile">
-                      <User />
-                      <span>profile</span>
-                    </Link>
-                  </SidebarMenuButton>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <SidebarMenuButton
+                        size="lg"
+                        className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                      >
+                        <Avatar className="h-8 w-8 rounded-lg">
+                          <AvatarImage src={session.user.image} alt={session.user.name} />
+                          <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                        </Avatar>
+                        <div className="grid flex-1 text-left text-sm leading-tight">
+                          <span className="truncate font-medium">{session.user.name}</span>
+                          <span className="truncate text-xs">{session.user.name}</span>
+                        </div>
+                        <ChevronsUpDown className="ml-auto size-4" />
+                      </SidebarMenuButton>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                      side={isMobile ? "bottom" : "right"}
+                      align="end"
+                      sideOffset={4}
+                    >
+                      <DropdownMenuLabel className="p-0 font-normal">
+                        <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                          <Avatar className="h-8 w-8 rounded-lg">
+                            <AvatarImage src={session.user.image} alt={session.user.name} />
+                            <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                          </Avatar>
+                          <div className="grid flex-1 text-left text-sm leading-tight">
+                            <span className="truncate font-medium">{session.user.name}</span>
+                          </div>
+                        </div>
+                      </DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuGroup>
+                        <DropdownMenuItem>
+                          <BadgeCheck />
+                          Account
+                        </DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <Bell />
+                          Notifications
+                        </DropdownMenuItem>
+                      </DropdownMenuGroup>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>
+                        <SidebarMenuButton onClick={() => signOut()} asChild>
+                          <Link href="#">
+                            <LogOut />
+                            <span>Log out</span>
+                          </Link>
+                        </SidebarMenuButton>
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </SidebarMenuItem>
-              ) : (null)}
-              {session?.user ? (
-                <SidebarMenu>
-      <SidebarMenuItem>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <SidebarMenuButton
-              size="lg"
-              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-            >
-              <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={session.user.image} alt={session.user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-              </Avatar>
-              <div className="grid flex-1 text-left text-sm leading-tight">
-                <span className="truncate font-medium">{session.user.name}</span>
-                <span className="truncate text-xs">{session.user.name}</span>
-              </div>
-              <ChevronsUpDown className="ml-auto size-4" />
-            </SidebarMenuButton>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent
-            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-            side={isMobile ? "bottom" : "right"}
-            align="end"
-            sideOffset={4}
-          >
-            <DropdownMenuLabel className="p-0 font-normal">
-              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                <Avatar className="h-8 w-8 rounded-lg">
-                  <AvatarImage src={session.user.image} alt={session.user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{session.user.name}</span>
-                </div>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck />
-                Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell />
-                Notifications
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <SidebarMenuButton onClick={() => signOut()} asChild>
-                    <Link href="#">
-                      <LogOut />
-                      <span>Log out</span>
-                    </Link>
-                  </SidebarMenuButton>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </SidebarMenuItem>
-    </SidebarMenu>
               ) : (
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
@@ -212,8 +209,6 @@ export function AppSidebar() {
                 </SidebarMenuItem>
               )}
             </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
       </SidebarFooter>
     </Sidebar>
   );
