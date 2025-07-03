@@ -30,13 +30,13 @@ export default function HomePage() {
             title="Espresso Martini"
             image="/cocktails/espresso-martini.png"
             description="Salzig-sauer, eiskalt – der mexikanische Kult-Drink."
-            link="/cocktails/esspresso-martini"
+            link="/main/cocktail-cosmos/espresso-martini"
           />
           <CocktailCard
             title="Long Island Iced Tea"
             image="/cocktails/long-island-iced-tea.png"
             description="Ein starker Mix mit Cola-Finish – nicht für Anfänger!"
-            link="/cocktails/long-island-iced-tea"
+            link="/main/cocktail-cosmos/long-island-iced-tea"
           />
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function HomePage() {
           title="Gin Basil Smash"
           image="/cocktails/gin-basil-smash.png"
           description="Frischer Basilikum trifft auf zitronige Frische – grün, modern, herb."
-          link="/cocktails/gin-basil-smash"
+          link="/main/cocktail-cosmos/gin-basil-smash"
         />
         </div>
       </section>
