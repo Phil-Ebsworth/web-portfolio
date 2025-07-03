@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music, Images, Martini, ChevronsUpDown, Sparkles, BadgeCheck, CreditCard, Bell } from "lucide-react"
+import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music, Images, Martini, ChevronsUpDown, Sparkles, BadgeCheck, Bell } from "lucide-react"
 
 import clsx from 'clsx';
 import {
@@ -177,23 +177,23 @@ export function AppSidebar() {
                       </DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuGroup>
-                        <DropdownMenuItem>
-                          <BadgeCheck />
-                          Account
-                        </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link href="/main/auth/profile">
+                          <User />
+                          <span>Profile</span>
+                        </Link>
+                      </DropdownMenuItem>
                         <DropdownMenuItem>
                           <Bell />
                           Notifications
                         </DropdownMenuItem>
                       </DropdownMenuGroup>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <SidebarMenuButton onClick={() => signOut()} asChild>
+                      <DropdownMenuItem onClick={() => signOut()} asChild>
                           <Link href="#">
                             <LogOut />
                             <span>Log out</span>
                           </Link>
-                        </SidebarMenuButton>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
