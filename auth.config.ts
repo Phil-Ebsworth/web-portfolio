@@ -11,7 +11,7 @@ declare module "next-auth" {
   interface User {
     id: string;
     name: string;
-    icon: string;
+    image?: string;
   }
 
   interface Session {
@@ -61,7 +61,7 @@ export const authConfig: NextAuthConfig = {
         }
 
         // Successful login
-        return { id: user.id, name: user.username, icon: user.icon };
+        return { id: user.id, name: user.username, image: user.image };
       },
     }),
   ],
@@ -70,25 +70,26 @@ export const authConfig: NextAuthConfig = {
 
   callbacks: {
     async jwt({ token, user, trigger, session }) {
-      if (trigger === 'update') {
-      return {
-         ...token,
-         ...session.user
-       };
-   }
+      if (trigger === 'update' && session?.user) {
+        token.id = session.user.id;
+        token.name = session.user.name;
+        token.image = session.user.image || "/icons/star.png";
+        return token;
+      } 
       if (user) {
         token.id = user.id;
         token.name = user.name;
-        token.icon = user.icon;
+        token.image = user.image;
       }
       return token;
+
     },
 
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.name = token.name as string;
-        session.user.icon = token.icon as string || "/icons/star.png";
+        session.user.image = token.image as string || "/icons/star.png";
       }
       return session;
     },

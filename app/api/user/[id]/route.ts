@@ -35,14 +35,14 @@ export async function PATCH(
     const userId = (await params).id;
     const body = await req.json();
 
-    if (!userId || !body.icon) {
+    if (!userId || !body.image) {
         return NextResponse.json({ error: 'User ID and icon are required' }, { status: 400 });
     }
 
     try {
         const result = await sql`
             UPDATE users
-            SET icon = ${body.icon}
+            SET image = ${body.image}
             WHERE id = ${userId}
             RETURNING id; 
         `;

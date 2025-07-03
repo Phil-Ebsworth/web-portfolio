@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Separator } from "@/components/ui/separator";
@@ -20,6 +20,7 @@ export function LoginForm({
     className,
     ...props
 }: React.ComponentProps<"div">) {
+    const { data: session, status } = useSession();
     const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -39,7 +40,7 @@ export function LoginForm({
         if (res?.error) {
             setError('Login fehlgeschlagen - Überprüfen Sie Ihre Anmeldedaten');
         } else {
-            router.back();
+            location.reload();
         }
     };
 
@@ -53,11 +54,14 @@ export function LoginForm({
         if (res?.error) {
             setError('Gast-Login fehlgeschlagen');
         } else {
-            
-            router.back();
+            location.reload();
+            await new Promise((resolve) => setTimeout(resolve, 1000));
         }
     }
-
+    if (status === "authenticated") {
+        router.replace("/main/start");
+        return null;
+    }
     return (
         <div className="flex flex-col gap-6">
             <Card>

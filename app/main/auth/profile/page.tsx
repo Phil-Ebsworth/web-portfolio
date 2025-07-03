@@ -10,7 +10,7 @@ const ProfilePage = () => {
     const [showModal, setShowModal] = useState(false);
     const [iconList, setIconList] = useState<string[]>([]);
     const [loadingIcons, setLoadingIcons] = useState(false);
-    const [icon, setIcon] = useState<string>(session?.user.icon || "/icons/star.png");
+    const [icon, setIcon] = useState<string>(session?.user.image || "/icons/star.png");
     const [iconSet, setIconSet] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -48,7 +48,7 @@ const ProfilePage = () => {
         await update({
             user: {
                 ...session?.user,
-                icon: newIcon,
+                image: newIcon,
             },
             })
     };
@@ -58,7 +58,7 @@ const ProfilePage = () => {
             const res = await fetch(`/api/user/${session?.user.id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ icon: newIcon }),
+                body: JSON.stringify({ image: newIcon }),
             });
 
             const responseBody = await res.json();
@@ -81,9 +81,8 @@ const ProfilePage = () => {
 
     // Ensure the icon is updated when session data changes
     useEffect(() => {
-        if (session?.user.icon && !iconSet) {
-            setIcon(session.user.icon);
-            setIconSet(true);
+        if (session?.user.image && session.user.image !== icon) {
+            setIcon(session.user.image);
         }
     });
 
@@ -92,7 +91,7 @@ const ProfilePage = () => {
             {/* Header */}
             <div className="flex flex-col items-center text-center">
                 <img
-                    key={icon} // This key change forces a re-render when the icon changes
+                    key={session?.user.image} // This key change forces a re-render when the icon changes
                     src={icon}
                     alt="Profilbild"
                     className="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4 object-cover cursor-pointer"

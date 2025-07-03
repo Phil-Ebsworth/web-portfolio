@@ -13,12 +13,13 @@ import { Label } from "@/components/ui/label"
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 export function RegisterForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+    const { data: session, status } = useSession();
     const router = useRouter();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -42,10 +43,14 @@ export function RegisterForm({
         password,
         redirect: false,
     }).then((res) => {
-      router.push('/main/tick-tack-toe');
+        location.reload()
     });
   };
 }
+if (status === "authenticated") {
+        router.replace("/main/start");
+        return null;
+    }
 
     return (
         <div className="flex flex-col gap-6">
