@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Home, Settings, Files, User, Grid, LogIn, LogOut, Music, Images, Martini, ChevronsUpDown, Sparkles, BadgeCheck, Bell } from "lucide-react"
+import { Home, Files, User, Grid, LogIn, Music, Images, Martini, Sparkles} from "lucide-react"
 
 import clsx from 'clsx';
 import {
@@ -11,31 +11,17 @@ import {
   SidebarMenu,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
   SidebarHeader,
 } from '@/components/ui/sidebar';
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { usePathname } from "next/navigation"
 import Link from 'next/link';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
-import { Separator } from '@radix-ui/react-separator';
+import { UserData } from '@/lib/definitions';
+import { ProfileCard } from './profile-card';
 
 const items = [
   {
@@ -81,24 +67,23 @@ export function AppSidebar() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // TIP: You can also use `navigator.onLine` and some extra event handlers
-    // to check if the user is online and only update the session if they are.
-    // https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine
     const interval = setInterval(() => update(), 1000 * 60 * 60)
     return () => clearInterval(interval)
   }, [update])
 
-  // Listen for when the page is visible, if the user switches tabs
-  // and makes our tab visible again, re-fetch the session
   useEffect(() => {
-    const visibilityHandler = () =>
-      document.visibilityState === "visible" && update()
-    window.addEventListener("visibilitychange", visibilityHandler, false)
-    return () =>
-      window.removeEventListener("visibilitychange", visibilityHandler, false)
-  }, [update])
-  // Determine if the screen is mobile-sized
-  const isMobile = typeof window !== "undefined" ? window.innerWidth < 768 : false;
+    // If the user is not authenticated, redirect to the login page
+    if (status === "unauthenticated") {
+      router.push("/main/auth/login");
+    }
+  }, [status, router]);
+
+  const userData: UserData = {
+    id: session?.user.id || '',
+    username: session?.user.name || '',
+    password: '', // Password is not available in the session
+    image: session?.user.image || '', // Use the image from the session
+  };
 
   return (
     <Sidebar collapsible="icon" className="group-data-[side=left]:border-r-0">
@@ -140,64 +125,7 @@ export function AppSidebar() {
             <SidebarSeparator />
             <SidebarMenu>
               {session?.user ? (
-                <SidebarMenuItem>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <SidebarMenuButton
-                        size="lg"
-                        className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                      >
-                        <Avatar className="h-8 w-8 rounded-lg">
-                          <AvatarImage src={session.user.image} alt={session.user.name} />
-                          <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                        </Avatar>
-                        <div className="grid flex-1 text-left text-sm leading-tight">
-                          <span className="truncate font-medium">{session.user.name}</span>
-                          <span className="truncate text-xs">{session.user.name}</span>
-                        </div>
-                        <ChevronsUpDown className="ml-auto size-4" />
-                      </SidebarMenuButton>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
-                      side={isMobile ? "bottom" : "right"}
-                      align="end"
-                      sideOffset={4}
-                    >
-                      <DropdownMenuLabel className="p-0 font-normal">
-                        <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                          <Avatar className="h-8 w-8 rounded-lg">
-                            <AvatarImage src={session.user.image} alt={session.user.name} />
-                            <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                          </Avatar>
-                          <div className="grid flex-1 text-left text-sm leading-tight">
-                            <span className="truncate font-medium">{session.user.name}</span>
-                          </div>
-                        </div>
-                      </DropdownMenuLabel>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuGroup>
-                      <DropdownMenuItem asChild>
-                        <Link href="/main/auth/profile">
-                          <User />
-                          <span>Profile</span>
-                        </Link>
-                      </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <Bell />
-                          Notifications
-                        </DropdownMenuItem>
-                      </DropdownMenuGroup>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem onClick={() => signOut()} asChild>
-                          <Link href="#">
-                            <LogOut />
-                            <span>Log out</span>
-                          </Link>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </SidebarMenuItem>
+                ProfileCard({ user: userData}) // Pass the user data to the Profile component
               ) : (
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>

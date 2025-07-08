@@ -8,10 +8,11 @@ export type Project = {
     md_link: string;
 };
 
-export type User = {
+export type UserData = {
     id: string;
     username: string;
     password: string;
+    image: string;
 };
 
 export type TimelineEvent = {
