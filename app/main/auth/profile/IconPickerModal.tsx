@@ -1,19 +1,17 @@
-'use client';
-
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 interface IconPickerModalProps {
+    showModal: boolean;
     iconList: string[];
     loading: boolean;
     onSelect: (src: string) => void;
     onClose: () => void;
 }
 
-const IconPickerModal = ({ iconList, loading, onSelect, onClose }: IconPickerModalProps) => {
+const IconPickerModal = ({ showModal, iconList, loading, onSelect, onClose }: IconPickerModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
 
-    // Click outside to close
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -21,11 +19,18 @@ const IconPickerModal = ({ iconList, loading, onSelect, onClose }: IconPickerMod
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        if (showModal) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [onClose]);
+    }, [showModal, onClose]);
+
+    if (!showModal) return null;
 
     return (
         <div className="fixed inset-0 z-50 backdrop-blur-sm flex items-center justify-center">

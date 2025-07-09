@@ -3,14 +3,16 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import IconPickerModal from "./IconPickerModal";
+import { NameChangeModal } from "./NameChangeModal";
 import { WTLBoard } from "./wtl-board";
+
 
 const ProfilePage = () => {
     const { data: session, update } = useSession();
     const [showModal, setShowModal] = useState(false);
+    const [showNameModal, setShowNameModal] = useState(false); // State for name modal
     const [iconList, setIconList] = useState<string[]>([]);
     const [loadingIcons, setLoadingIcons] = useState(false);
-    const [icon, setIcon] = useState<string>(session?.user.image || "/icons/star.png");
 
     const fetchIcons = async () => {
         setLoadingIcons(true);
@@ -66,8 +68,35 @@ const ProfilePage = () => {
             }
 
             await updateIcon(newIcon);
-            setIcon(newIcon);
             setShowModal(false);
+        } catch (err) {
+            console.error("Netzwerkfehler:", err);
+            alert("Network error occurred!");
+        }
+    };
+
+    const handleNameChange = async (newName: string) => {
+        try {
+            const res = await fetch(`/api/user/${session?.user.id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: newName }),
+            });
+
+            const responseBody = await res.json();
+
+            if (!res.ok) {
+                console.error("Fehler beim Speichern:", responseBody);
+                alert(responseBody.error || "Unknown error");
+                return;
+            }
+
+            await update({
+                user: {
+                    ...session?.user,
+                    name: newName,
+                },
+            });
         } catch (err) {
             console.error("Netzwerkfehler:", err);
             alert("Network error occurred!");
@@ -79,23 +108,38 @@ const ProfilePage = () => {
             <div className="flex flex-col items-center text-center">
                 <img
                     key={session?.user.image}
-                    src={session?.user.image || "/icons/star.png"}
+                    src={session?.user.image}
                     alt="Profilbild"
-                    className="w-32 h-32 rounded-full border-4 border-white shadow-lg mb-4 object-cover cursor-pointer"
+                    className="w-32 h-32 rounded-full shadow-lg mb-4 object-cover cursor-pointer"
                     onClick={openModal}
                 />
-                <h1 className="text-3xl font-bold">{session?.user.name}</h1>
+                <h1 
+                    className="text-3xl font-bold cursor-pointer"
+                    onClick={() => setShowNameModal(true)} // Open name change modal
+                >
+                    {session?.user.name}
+                </h1>
             </div>
 
-            {showModal && (
-                <IconPickerModal
-                    iconList={iconList}
-                    loading={loadingIcons}
-                    onSelect={handleIconSelect}
-                    onClose={() => setShowModal(false)}
-                />
-            )}
-            < WTLBoard
+            {/* Icon Picker Modal */}
+            <IconPickerModal
+                showModal={showModal}
+                iconList={iconList}
+                loading={loadingIcons}
+                onSelect={handleIconSelect}
+                onClose={() => setShowModal(false)}
+            />
+
+            {/* Name Change Modal */}
+            <NameChangeModal
+                showModal={showNameModal}
+                currentName={session?.user.name || ''}
+                onClose={() => setShowNameModal(false)}
+                onSave={handleNameChange}
+            />
+
+            {/* WTL Board */}
+            <WTLBoard
                 wins={session?.user.wins || 0}
                 losses={session?.user.losses || 0}
                 ties={session?.user.ties || 0}

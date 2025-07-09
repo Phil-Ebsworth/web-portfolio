@@ -1,7 +1,7 @@
 
 export function WTLBoard( { wins , losses, ties } : { wins: number, losses: number, ties: number } ) {
     return (
-        <div className="rounded-lg shadow-md p-6">
+        <div className="p-6">
             <div className="grid grid-cols-3 gap-4">
                 <div className=" p-4 rounded-lg text-center">
                     <h3 className="text-lg font-bold">Wins</h3>
