@@ -4,14 +4,16 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import postgres from "postgres";
 import { z } from "zod";
-import { DefaultSession } from "next-auth";
 
 // Extending the NextAuth User and Session types to include `icon`
 declare module "next-auth" {
   interface User {
     id: string;
     name: string;
-    image?: string;
+    image: string;
+    wins: number;
+    losses: number;
+    ties: number;
   }
 
   interface Session {
@@ -61,7 +63,7 @@ export const authConfig: NextAuthConfig = {
         }
 
         // Successful login
-        return { id: user.id, name: user.username, image: user.image };
+        return { id: user.id, name: user.username, image: user.image, wins: user.wins, losses: user.losses, ties: user.ties };
       },
     }),
   ],
@@ -73,13 +75,19 @@ export const authConfig: NextAuthConfig = {
       if (trigger === 'update' && session?.user) {
         token.id = session.user.id;
         token.name = session.user.name;
-        token.image = session.user.image || "/icons/star.png";
+        token.image = session.user.image;
+        token.wins = session.user.wins;
+        token.losses = session.user.losses;
+        token.ties = session.user.ties;
         return token;
       } 
       if (user) {
         token.id = user.id;
         token.name = user.name;
         token.image = user.image;
+        token.wins = user.wins;
+        token.losses = user.losses;
+        token.ties = user.ties;
       }
       return token;
 
@@ -89,14 +97,16 @@ export const authConfig: NextAuthConfig = {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.name = token.name as string;
-        session.user.image = token.image as string || "/icons/star.png";
+        session.user.image = token.image as string;
+        session.user.wins = token.wins as number;
+        session.user.losses = token.losses as number;
+        session.user.ties = token.ties as number;
       }
       return session;
     },
   },
 
   pages: {
-    signIn: "/main/auth/login", // Ensure this has a leading slash
   },
 
   secret: process.env.NEXTAUTH_SECRET,

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import IconPickerModal from "./IconPickerModal";
+import { WTLBoard } from "./wtl-board";
 
 const ProfilePage = () => {
     const { data: session, update } = useSession();
@@ -94,6 +95,11 @@ const ProfilePage = () => {
                     onClose={() => setShowModal(false)}
                 />
             )}
+            < WTLBoard
+                wins={session?.user.wins || 0}
+                losses={session?.user.losses || 0}
+                ties={session?.user.ties || 0}
+            />
         </main>
     );
 };
