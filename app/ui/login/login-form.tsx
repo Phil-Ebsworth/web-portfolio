@@ -125,7 +125,7 @@ export function LoginForm({
                         </div>
                         <div className="mt-4">
                             <Button className="w-full" onClick={handleGuestLogin}>
-                                Als Gast spielen
+                                Login als Gast
                             </Button>
                         </div>
                     </form>
