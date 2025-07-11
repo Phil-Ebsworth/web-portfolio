@@ -19,7 +19,14 @@ export default function HomePage() {
             description="die Klasiker unter den Cocktails – zeitlos und beliebt."
             link="/main/cocktail-cosmos/classics"
           />
+          <CocktailCard
+            title="Last Resort"
+            image="/cocktails/gin-basil-smash.png"
+            description="Die Karte des Last Resort"
+            link="/main/cocktail-cosmos/last-resort"
+          />
         </div>
+
       </section>
 
       {/* Klassiker */}
