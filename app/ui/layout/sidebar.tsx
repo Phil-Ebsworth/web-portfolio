@@ -71,12 +71,6 @@ export function AppSidebar() {
     return () => clearInterval(interval)
   }, [update])
 
-  useEffect(() => {
-    // If the user is not authenticated, redirect to the login page
-    if (status === "unauthenticated") {
-      router.push("/main/auth/login");
-    }
-  }, [status, router]);
 
   const userData: UserData = {
     id: session?.user.id || '',
