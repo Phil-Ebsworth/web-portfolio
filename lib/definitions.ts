@@ -55,3 +55,12 @@ export type Tab = {
   pdf_url?: string;
   slug: string;
 };
+
+export type Special = {
+  id: number;
+  title: string;
+  slug: string;
+  description: string;
+  cocktails: string[];
+  image_url: string;
+}

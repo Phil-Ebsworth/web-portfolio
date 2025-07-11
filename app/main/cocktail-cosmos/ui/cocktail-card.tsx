@@ -1,41 +1,51 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Cocktail } from "@/lib/definitions";
 
-export default function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
+export type CocktailCardProps = {
+  title: string;
+  image: string;
+  description: string;
+  link: string;
+};
+
+export function CocktailCard({ cocktail }: { cocktail: Cocktail }) {
   return (
     <Link
       href={`/main/cocktail-cosmos/${cocktail.slug}`}
-      className="block w-full max-w-5xl mx-auto"
+      className="flex flex-col md:flex-row hover:bg-white/10 transition p-4 rounded-2xl shadow-lg backdrop-blur-md"
     >
-      <Card className="flex flex-col md:flex-row items-stretch overflow-hidden hover:shadow-xl transition duration-200 cursor-pointer">
-        <div className="md:w-2/3 p-6">
-          <CardHeader className="p-0 mb-4">
-            <CardTitle className="text-2xl">{cocktail.name}</CardTitle>
-            <CardDescription>{cocktail.description}</CardDescription>
-          </CardHeader>
-          <CardContent className="p-0">
-            <p className="text-sm text-muted-foreground">Mehr erfahren →</p>
-          </CardContent>
-        </div>
-
-        <div className="md:w-1/3 w-full aspect-square relative">
-          <Image
-            src={cocktail.image_url}
+      <div className="w-full md:w-48 aspect-square relative mb-4 md:mb-0 md:mr-6">
+      <img
+        src={cocktail.image_url}
             alt={cocktail.name}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 33vw"
-          />
-        </div>
-      </Card>
+        className="absolute inset-0 w-full h-full object-cover rounded-xl"
+      />
+      </div>
+      <div className="flex flex-col justify-start md:w-1/2">
+        <h3 className="text-2xl font-semibold mb-2">{cocktail.name}</h3>
+        <p className="text-sm text-gray-300 mb-3">{cocktail.description}</p>
+      </div>
+    </Link>
+  );
+}
+
+export function SpecialCard({ title, image, description, link }: CocktailCardProps) {
+  return (
+    <Link
+      href={link}
+      className="flex flex-col md:flex-row hover:bg-white/10 transition p-4 rounded-2xl shadow-lg backdrop-blur-md"
+    >
+      <div className="w-full md:w-48 aspect-square relative mb-4 md:mb-0 md:mr-6">
+      <img
+        src={image}
+        alt={title}
+        className="absolute inset-0 w-full h-full object-cover rounded-xl"
+      />
+      </div>
+      <div className="flex flex-col justify-start md:w-1/2">
+        <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+        <p className="text-sm text-gray-300 mb-3">{description}</p>
+      </div>
     </Link>
   );
 }
