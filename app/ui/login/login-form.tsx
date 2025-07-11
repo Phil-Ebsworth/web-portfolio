@@ -43,8 +43,8 @@ export function LoginForm({
 
     const handleGuestLogin = async () => {
         const res = await signIn('credentials', {
-            username: 'Gast',
-            password: 'Gast',
+            username: 'gast',
+            password: 'gast',
             redirect: false,
         }) as { error?: string } | undefined;
 
