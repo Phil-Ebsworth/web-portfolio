@@ -30,7 +30,8 @@ export function LoginForm({
         const res = await signIn('credentials', {
             username,
             password,
-            redirect: true,
+            redirect: false,
+            // Redirect to the start page after successful login
             callbackUrl: '/main/start',
         }) as { error?: string } | undefined;
 
