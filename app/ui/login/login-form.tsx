@@ -31,7 +31,7 @@ export function LoginForm({
             username,
             password,
             redirect: true,
-            callbackUrl: '/main',
+            callbackUrl: '/main/start',
         }) as { error?: string } | undefined;
 
         if (res?.error) {
@@ -46,6 +46,7 @@ export function LoginForm({
             username: 'gast',
             password: 'gast',
             redirect: false,
+            callbackUrl: '/main/start',
         }) as { error?: string } | undefined;
 
         if (res?.error) {
