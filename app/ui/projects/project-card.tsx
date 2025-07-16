@@ -26,6 +26,8 @@ export function ProjectCard({
   md_link,
   ...props
 }: ProjectCardProps & React.HTMLAttributes<HTMLDivElement>) {
+  const isPdf = md_link.toLowerCase().endsWith(".pdf");
+
   return (
     <Card
       className="w-full rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:border hover:border-white border border-transparent overflow-hidden"
@@ -48,11 +50,15 @@ export function ProjectCard({
           {description}
         </CardDescription>
 
-        <Link href={`/main/projects/${md_link}`} passHref>
-          <Button variant="link" className="p-0 h-auto">
-            Read more
-          </Button>
-        </Link>
+        {isPdf ? (
+          <a
+            href={`/projects/${md_link}`}
+            download
+            className="text-blue-500 underline text-sm"
+          >
+            Download PDF
+          </a>
+        ) : null}
       </CardContent>
     </Card>
   );

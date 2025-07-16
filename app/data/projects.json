@@ -6,7 +6,7 @@
         "content": "This thesis focuses on the automatic generation of HTML documentation for the experimental programming language Polarity. Polarity is built around the dual concepts of “data” and “codata” and combines both functional and object‐oriented programming paradigms. In particular, the work examines how Polarity source files can be parsed into an untyped syntax tree and then transformed—using Rust libraries such as pretty and Askama—into well‐structured, template‐based HTML pages. By separating content and presentation (via Askama templates and a central CSS stylesheet), the system produces a separate HTML document for each Polarity module, complete with syntax highlighting and hyperlinks.",
         "image_url": "/documentation.PNG",
         "link": "https://github.com/Phil-Ebsworth/polarity",
-        "md_link": "polarity.md"
+        "md_link": "Automatisierung der Dokumentation für die Sprache Polarity.pdf"
     },
     {
         "id": "d4e3f2a1-5c6d-4e7e-8f1a-9a0b1c2d3e4f",
