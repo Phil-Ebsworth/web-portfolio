@@ -52,6 +52,19 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
         if (winner) {
             newStatus = 'finished';
             winnerChar = winner;
+            if (winner === 'X') {
+                await sql`
+                    UPDATE users
+                    SET wins = wins + 1
+                    WHERE id = ${player_x};
+                `;
+            } else if (winner === 'O') {
+                await sql`
+                    UPDATE users
+                    SET wins = wins + 1
+                    WHERE id = ${player_o};
+                `;
+            }
         } else if (!boardArr.includes(' ')) {
             newStatus = 'finished';
             winnerChar = 'D';
