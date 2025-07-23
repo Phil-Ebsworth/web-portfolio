@@ -15,27 +15,24 @@ const ProfilePage = () => {
     const [loadingIcons, setLoadingIcons] = useState(false);
 
     const fetchIcons = async () => {
-        setLoadingIcons(true);
-        try {
-            const icons = (require as any).context(
-                "../../../../public/icons",
-                false,
-                /\.(png|jpe?g|svg|gif)$/
-            );
-            const paths: string[] = icons.keys().map((key: string) => `/icons/${key.replace('./', '')}`);
-            setIconList(paths);
-        } catch {
-            setIconList([
-                "/icons/star.png",
-                "/icons/rocket.png",
-                "/icons/heart.png",
-                "/icons/smile.png",
-                "/icons/cat.png",
-            ]);
-        } finally {
-            setLoadingIcons(false);
-        }
-    };
+  setLoadingIcons(true);
+  try {
+    const icons = (require as any).context(
+      "../../../../public/icons",
+      false,
+      /^\.\/.+\.(png|jpe?g|svg|gif)$/i
+    );
+    const paths: string[] = icons.keys()
+      .filter((key: string) => key && key.startsWith('./'))
+      .map((key: string) => `/icons/${key.replace('./', '')}`);
+    setIconList(paths);
+  } catch (err) {
+    console.error("Fehler beim Laden der Icons:", err);
+    setIconList([]);
+  } finally {
+    setLoadingIcons(false);
+  }
+};
 
     const openModal = () => {
         fetchIcons();
