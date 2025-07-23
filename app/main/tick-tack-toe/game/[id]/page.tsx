@@ -127,14 +127,15 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
           {game.status === 'finished'
             ? game.winner === 'D'
               ? 'Unentschieden!'
-              : `🎉 Gewinner: ${game.winner}`
+              : `Gewinner: ${game.winner}`
             : game.player_o
               ? `Zug: ${game.current_turn}`
               : 'Warte auf zweiten Spieler …'}
         </p>
         {game.status === 'finished' && (
-          <button
-            onClick={async () => {
+            <div className="flex justify-center">
+            <button
+              onClick={async () => {
               const res = await fetch(`/api/game/${gameId}/rematch`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -146,11 +147,12 @@ export default function GamePage({ params }: { params: Promise<{ id: string }> }
               } else {
                 console.log('[Rematch]', result.message);
               }
-            }}
-            className="mt-4 px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-          >
-            🔁 Neues Spiel starten
-          </button>)}
+              }}
+              className="mt-4 px-4 py-2 rounded bg-accent transition-colors"
+            >
+              Neues Spiel starten
+            </button>
+            </div>)}
       </div>
     </div>
   );
