@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface TypingPageProps {
   sampleText: string;
@@ -13,11 +13,12 @@ export function TypingPage({ sampleText }: TypingPageProps) {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [done, setDone] = useState(false);
 
-  const [mistakeCount, setMistakeCount] = useState(0); // alle Fehler, auch wenn korrigiert
-  const [currentErrors, setCurrentErrors] = useState(0); // aktuelle Live-Fehler im Text
-  const [alreadyCounted, setAlreadyCounted] = useState<boolean[]>([]); // pro Zeichen gemerkt
+  const [mistakeCount, setMistakeCount] = useState(0);
+  const [currentErrors, setCurrentErrors] = useState(0);
+  const [alreadyCounted, setAlreadyCounted] = useState<boolean[]>([]);
 
-  // ⌨️ Tasteneingaben verarbeiten
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (done) return;
@@ -56,27 +57,36 @@ export function TypingPage({ sampleText }: TypingPageProps) {
 
       setInputText(newText);
 
-      // Fehler im aktuellen Text neu zählen
+      // Fehler im aktuellen Text zählen
       let liveErrors = 0;
       for (let i = 0; i < newText.length; i++) {
         if (newText[i] !== sampleText[i]) liveErrors++;
       }
       setCurrentErrors(liveErrors);
 
-      // Stoppen, wenn Text vollständig
+      // Fertig
       if (newText.length === sampleText.length && start) {
         const end = now;
         setEndTime(end);
         setElapsedTime((end - start) / 1000);
         setDone(true);
       }
+
+      // Scroll zur Cursor-Position
+      setTimeout(() => {
+        const cursorEl = containerRef.current?.querySelector('.bg-accent');
+        if (cursorEl) {
+          cursorEl.scrollIntoView({ behavior: 'smooth',
+      block: 'start',     // ⬅️ scrollt bis ganz nach oben
+      inline: 'nearest', });
+        }
+      }, 0);
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [inputText, done, startTime, alreadyCounted, sampleText]);
 
-  // ⏱ Live-Zeit aktualisieren
   useEffect(() => {
     if (!startTime || done) return;
 
@@ -87,7 +97,6 @@ export function TypingPage({ sampleText }: TypingPageProps) {
     return () => clearInterval(interval);
   }, [startTime, done]);
 
-  // 🧮 WPM = Wörter pro Minute
   const getWPM = () => {
     if (!startTime || !endTime) return null;
     const minutes = (endTime - startTime) / 1000 / 60;
@@ -95,7 +104,6 @@ export function TypingPage({ sampleText }: TypingPageProps) {
     return Math.round(words / minutes);
   };
 
-  // 🧮 CPM = Zeichen pro Minute
   const getCPM = () => {
     if (!startTime || !endTime) return null;
     const minutes = (endTime - startTime) / 1000 / 60;
@@ -104,8 +112,27 @@ export function TypingPage({ sampleText }: TypingPageProps) {
   };
 
   return (
-    <div className="p-8 max-w-xl mx-auto cursor-text" tabIndex={0}>
-      <p className="text-lg font-mono mb-6 select-none whitespace-pre-wrap">
+    <div className="p-8 mx-auto cursor-text outline-none" tabIndex={0}>
+      <div className="w-1/2 flex flex-row items-center justify-center mx-auto gap-8">
+        <div className="mb-4 flex flex-col items-center">
+          <h2 className="text-2xl mb-3">Fehler aktuell:{' '}</h2>
+          <span className="text-3xl mb-5">{currentErrors}</span>
+        </div>
+        <div className="mb-4 flex flex-col items-center">
+          <h2 className="text-2xl mb-3">Zeit:{' '}</h2>
+          <span className="text-3xl mb-5 font-semibold text-center">
+        {elapsedTime.toFixed(2)} s
+          </span>
+        </div>
+        <div className="mb-4 flex flex-col items-center">
+          <h2 className="text-2xl mb-3">Fehler gesamt:{' '}</h2>
+          <span className="text-3xl mb-5">{mistakeCount}</span>
+        </div>
+      </div>
+      <div
+        ref={containerRef}
+        className="text-lg font-mono mb-6 select-none h-48 overflow-auto p-4 rounded shadow-inner"
+      >
         {sampleText.split('').map((char, idx) => {
           const typed = inputText[idx];
           let className = '';
@@ -113,7 +140,7 @@ export function TypingPage({ sampleText }: TypingPageProps) {
           if (typed != null) {
             className = typed === char ? 'text-green-600' : 'text-red-600';
           } else if (idx === inputText.length) {
-            className = 'bg-yellow-300 underline';
+            className = 'bg-accent underline';
           }
 
           return (
@@ -122,33 +149,19 @@ export function TypingPage({ sampleText }: TypingPageProps) {
             </span>
           );
         })}
-      </p>
+      </div>
 
-      <div className="mt-6 text-lg space-y-1">
-        <p>
-          ❌ Fehler aktuell im Text:{' '}
-          <span className="text-red-600 font-bold">{currentErrors}</span>
-        </p>
-        <p>
-          ✅ Fehler gemacht insgesamt:{' '}
-          <span className="text-orange-600 font-bold">{mistakeCount}</span>
-        </p>
-        <p>
-          ⏱ Zeit:{' '}
-          <span className="text-blue-600 font-semibold">
-            {elapsedTime.toFixed(2)} s
-          </span>
-        </p>
+      <div className="mt-6 text-lg space-y-1 flex items-center justify-center mx-auto gap-8">
         {done && (
           <>
-            <p>
-              🏁 WPM:{' '}
-              <span className="text-green-700 font-semibold">{getWPM()}</span>
-            </p>
-            <p>
-              📈 CPM:{' '}
-              <span className="text-purple-700 font-semibold">{getCPM()}</span>
-            </p>
+            <div className="flex flex-col items-center">
+              <h2 className="text-2xl mb-3">Worte pro Minute</h2>
+              <span className="text-3xl mb-5  font-semibold">{getWPM()}</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <h2 className="text-2xl mb-3">Zeichen pro Minute</h2>
+              <span className="text-3xl mb-5 font-semibold">{getCPM()}</span>
+            </div>
           </>
         )}
       </div>

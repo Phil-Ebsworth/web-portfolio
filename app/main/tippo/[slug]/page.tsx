@@ -27,7 +27,7 @@ export default function SlugPage() {
   if (!data) return <p className="p-6">Lade Text …</p>;
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-6 w-full mx-auto">
       <h1 className="text-2xl font-bold mb-4">{data.title}</h1>
       <TypingPage sampleText={data.content} />
     </div>
