@@ -3,10 +3,17 @@ import postgres from 'postgres';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-export async function GET(_: Request, { params }: { params: { slug: string } }) {
-  console.log('Requested slug:', params.slug);
+export async function GET(
+  req: NextResponse, 
+  { params }: { params: { slug: string } }) 
+  {
+  const slug = (await params).slug;
+
+  if (!slug) {
+    return NextResponse.json({ error: 'slug required' }, { status: 400})
+  }
   const result = await sql`
-    SELECT title, content FROM texts WHERE slug = ${params.slug} LIMIT 1
+    SELECT title, content FROM texts WHERE slug = ${slug} LIMIT 1
   `;
 
   if (result.length === 0) {
